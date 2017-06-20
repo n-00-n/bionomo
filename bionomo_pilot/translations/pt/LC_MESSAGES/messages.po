@@ -1,0 +1,326 @@
+# Portuguese translations for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-06-05 20:04+0200\n"
+"PO-Revision-Date: 2017-06-06 00:55+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt\n"
+"Language-Team: pt <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+msgid "locale"
+msgstr "pt"
+
+msgid "lang"
+msgstr "pt"
+
+msgid "Software Developer"
+msgstr "Desenvolvedor de software"
+
+msgid "Sobre a iniciativa"
+msgstr ""
+
+msgid "Born form a partnership between Italian Agency for Development Cooperation, UEM and MITADER, the Biodiversity Network of Mozambique (BioNoMo) provides research-grade primary biodiversity data from leading national universities, research centres, and conservation areas."
+msgstr "Nascido de uma parceria entre a Agência Italiana de Cooperação para o Desenvolvimento, UEM e MITADER, a Rede de Biodiversidade de Moçambique (BioNoMo) fornece dados de biodiversidade primária de pesquisa de principais universidades nacionais, centros de pesquisa e áreas de conservação."
+
+msgid "To conserve this key asset of the country, good quality data are needed for research and land use planning."
+msgstr "Para conservar este patrimônio-chave do país, são necessários dados de boa qualidade para pesquisa e planejamento de uso do solo."
+
+msgid "More than half of  the  Mozambican  population, estimated  at  28  million  people, lives in   rural   areas, and depends directly on biodiversity resources and ecosystem services."
+msgstr "Mais de metade da população moçambicana, estimada em 28 milhões de pessoas, vive em áreas rurais e depende diretamente dos recursos da biodiversidade e dos serviços ecossistêmicos."
+
+msgid "Mozambique  is  characterized  by  an outstanding  variety  of  terrestrial, marine  and freshwater  ecosystems,  which  host  a  valuable  diversity  of  species  (flora  and  fauna)."
+msgstr "Moçambique é caracterizada por uma excelente variedade de ecossistemas terrestres, marinhos e de água doce, que possuem uma valiosa diversidade de espécies (flora e fauna)."
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Parâmetros inválidos."
+msgstr ""
+
+msgid "O campo dever ter valor superior ao %(other_label)s."
+msgstr ""
+
+msgid "O campo dever ter valor inferior ao %(other_label)s."
+msgstr ""
+
+msgid "Latitude"
+msgstr "Latitude"
+
+msgid "Longitude"
+msgstr "Longitude"
+
+msgid "dados"
+msgstr ""
+
+msgid "header.identification_person"
+msgstr "Identificador"
+
+msgid "header.authorship"
+msgstr "Autoria"
+
+msgid "header.taxonomy"
+msgstr "Árvore de classificação"
+
+msgid "header.unit_id"
+msgstr "Código"
+
+msgid "header.provider"
+msgstr "Instituição"
+
+msgid "header.scientific_name"
+msgstr "Nome Científico"
+
+msgid "header.genus"
+msgstr "Gênero"
+
+msgid "header.species"
+msgstr "Espécie"
+
+msgid "header.province"
+msgstr "Província"
+
+msgid "header.district"
+msgstr "Distrito"
+
+msgid "header.last_date"
+msgstr "Última Data"
+
+msgid "header.latitude"
+msgstr "Latitude"
+
+msgid "header.longitude"
+msgstr "Longitude"
+
+msgid "início"
+msgstr ""
+
+msgid "fim"
+msgstr ""
+
+msgid "(descrição)"
+msgstr ""
+
+msgid "(latitude)"
+msgstr ""
+
+msgid "(longitude)"
+msgstr ""
+
+msgid "Not a valid choice"
+msgstr "Por favor faça uma escolha"
+
+msgid "Not a valid decimal value"
+msgstr "Valor inválido!"
+
+msgid "Not a valid date value"
+msgstr "Data no formato inválido. Use dd/mm/aaaa. Ex: 20/05/2000"
+
+#: bionomo_pilot/forms.py:28
+msgid "Entre o nome científico de seguida <ENTER>"
+msgstr ""
+
+#: bionomo_pilot/forms.py:32
+msgid "Por favor submeta um nome científico"
+msgstr ""
+
+#: bionomo_pilot/forms.py:69 bionomo_pilot/forms.py:70
+msgid "permitido valores no intervalo de -180 a 180"
+msgstr ""
+
+#: bionomo_pilot/view.py:66
+#, python-format
+msgid "não foram encontradas coleções para a procurar: '%(search_input)s'"
+msgstr ""
+
+msgid "não foram encontradas coleções para a procurar: "
+msgstr ""
+
+#: bionomo_pilot/view.py:94
+msgid "não foram encontradas coleções para o seu critério de procura!"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:9
+#: bionomo_pilot/templates/landing_page_bkp.html:9
+msgid "BioNoMo - Versão Piloto"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:23
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a "
+"href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your"
+" experience."
+msgstr ""
+"Você está usando um navegador <strong> desatualizado </ strong>. Por "
+"favor <aHref = \" http: //browsehappy.com/ \"> atualize seu navegador "
+"</a> para melhorar a sua experiência."
+
+#: bionomo_pilot/templates/base.html:58
+msgid "Sobre o projecto"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:59
+msgid "Iniciativa"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:60
+#: bionomo_pilot/templates/landing_page.html:40
+msgid "Parceiros"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:61
+msgid "Contactos"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:67
+#: bionomo_pilot/templates/landing_page_bkp.html:51
+msgid ""
+"Versão Piloto da rede de biodiversidades de Moçambique: um portal para "
+"acesso a informação de biodiversidades."
+msgstr ""
+#: bionomo_pilot/templates/base.html:95
+msgid "Procura avançada"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:115
+msgid "Nome Científico"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:121
+msgid "O nome científico"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:125
+#: bionomo_pilot/templates/search_results.html:43
+msgid "Província"
+msgstr "Província"
+
+#: bionomo_pilot/templates/base.html:143
+msgid "Localização"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:143
+msgid "(lat - long)"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:145
+msgid "latitude"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:146
+#: bionomo_pilot/templates/search_results.html:58
+msgid "e"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:147
+msgid "longitude"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:152
+msgid "<span>Localização:</span> <span> (descrição)</span></div>"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:154
+msgid "descrição da localização, distrito, localidade, etc."
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:160
+msgid "Procurar"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:176
+msgid "Uma parceria entre"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:186
+msgid "Com o apoio de"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:195
+msgid "Um projecto de"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:198
+msgid ""
+"UEM Departmento de Ciências Biológicas, Sala B7. <br>Campus Principal "
+"UEM, Av. Julius Nyerere 3545, Maputo, Moçambique"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:203
+msgid "Todos os direitos reservados."
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:204
+msgid "Desenvolvido por"
+msgstr ""
+
+#: bionomo_pilot/templates/landing_page.html:6
+msgid "Dados provenientes de instituições parceiras"
+msgstr ""
+
+#: bionomo_pilot/templates/landing_page.html:19
+msgid "Coleções visualizadas com maior frequência"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:14
+msgid "Ver no mapa"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:15
+msgid "Baixar .CSV"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:29
+msgid "Instituição"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:55
+msgid "<span>Localização:</span> <span>(lat - long)</span>"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:64
+msgid "Filtrar"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:77
+msgid "Coleção"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:78
+msgid "Provedor de Dados"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:97
+msgid "Genus"
+msgstr "Gênero"
+
+#: bionomo_pilot/templates/search_results.html:101
+msgid "Province"
+msgstr "Província"
+
+#: bionomo_pilot/templates/search_results.html:105
+msgid "Location (desc)"
+msgstr "Localização (desc)"
+
+#: bionomo_pilot/templates/search_results.html:109
+msgid "Location (Lat; Long)"
+msgstr "Localização (Lat; Long)"
+
+#: bionomo_pilot/templates/search_results.html:119
+msgid "endereço"
+msgstr ""
+
+#: bionomo_pilot/templates/search_results.html:123
+msgid "contacto"
+msgstr ""
+

@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block content %}
+        {% if result %}
+                <div id="search-result-container">
+                    <div id="map-container">
+                        <div id="maps"></div>
+                    </div>
+                    {% if result.get('collections', None) %}
+                    <div id="map-container1" style="display: none">
+                        <div id="maps1">
+                        {% for collection in result['collections_coordinates'] %}
+                            <span class="coordinates" style="display: inline-block; margin: 3px; padding: 3px; border: 1px solid darkslategray; background: darkgray;">
+                                <span class="latitude">{{ collection.latitude }}</span>;
+                                <span class="longitude">{{collection.longitude}}</span>
+                            </span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div id="result-options">
+                            <div class="wrapper">
+                                <div class="links-wrapper">
+                                    <div class="links">
+                                        <div class="link" style="display: block;"><span class="total"><span>{{ _('Total') }}: </span>{{ result['collections'].total }}</span></div>
+                                        <div class="link map hidden"><a href="#"><i class="fa fa-map" aria-hidden="true"></i><span>{{ _('Ver no mapa') }}</span></a></div>
+                                        <div class="link csv"><a href="{{ result['csv_url'] }}"><i class="fa fa-download" aria-hidden="true"></i><span>{{ _('Baixar .CSV') }}</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="clear-both"></div>
+                            </div>
+                    </div>
+                    <div id="list-area">
+                        <div class="wrapper">
+
+                            <div id="list-filter">
+                                <div class="wrappera">
+                                    <form action="{{ url_for('view_results') }}" method="GET">
+                                        <div class="filter-wrapper">
+                                            {% with info_messages = get_flashed_messages(category_filter=["info-filter"]) %}
+                                                {% if info_messages %}
+                                                    {% for info_message in info_messages %}
+                                                        <div class="field-info">{{ info_message }}</div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endwith %}
+
+                                            {% with main_errors = get_flashed_messages(category_filter=["error-filter"]) %}
+                                                {% if main_errors %}
+                                                    {% for main_error in main_errors %}
+                                                        <div class="field-error">{{ main_error }}</div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endwith %}
+
+
+                                            {{ filter_form.flag }}
+                                            <input type="hidden" name="{{ _form_names.name_full_scientific_name_string }}" value="{{ result['filter_form_values'][ _form_names.name_full_scientific_name_string] }}">
+                                            {% if result['data_providers'] %}
+                                            <div class="field">
+                                                <div class="label"><i class="fa fa-university" aria-hidden="true"></i>{{ _('Instituição') }}:</div>
+                                                <div class="input">
+                                                    {{ filter_form[_form_names.name_provider] }}
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            {% endif %}
+
+                                            {% if result['provinces'] %}
+                                            <div class="field">
+                                                <div class="label"><i class="fa fa-tree" aria-hidden="true"></i>{{ _('Província') }}:</div>
+                                                <div class="input">
+                                                    {{ filter_form[_form_names.name_province] }}
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            {% endif %}
+                                            <div class="field">
+                                                <div class="label"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{ _('Localização') }}:</span> <span>{{ _('latitude') }}</span></div>
+                                                <div class="input">
+                                                    <div class="input-wrapper half">
+                                                        <!--<i>M</i>-->
+                                                        {{ filter_form[_form_names.name_latitude_decimal_start](
+                                                            value=(
+                                                                    result['filter_form_values'][_form_names.name_latitude_decimal_start]
+                                                                    if result and result.get('filter_form_values', None) and result['filter_form_values'].get(_form_names.name_latitude_decimal_start, None)
+                                                                    else ''
+                                                                    ),
+                                                            placeholder=_('início')
+                                                        ) }}
+                                                        <div class="clear-both"></div>
+                                                    </div>
+
+                                                    <span class="sep">{{ _('e') }}</span>
+
+                                                    <div class="input-wrapper half half2">
+                                                        <!--<i>M</i>-->
+                                                        {{ filter_form[_form_names.name_latitude_decimal_end](
+                                                            value=(
+                                                                    result['filter_form_values'][_form_names.name_latitude_decimal_end]
+                                                                    if result and result.get('filter_form_values', None) and result['filter_form_values'].get(_form_names.name_latitude_decimal_end, None)
+                                                                    else ''
+                                                                    ),
+                                                            placeholder=_('fim')
+                                                        ) }}
+                                                        <div class="clear-both"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="label"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{ _('Localização') }}:</span> <span>{{ _('longitude') }}</span></div>
+                                                <div class="input">
+                                                    <div class="input-wrapper half">
+                                                        <!--<i>M</i>-->
+                                                        {{ filter_form[_form_names.name_longitude_decimal_start](
+                                                            value=(
+                                                                    result['filter_form_values'][_form_names.name_longitude_decimal_start]
+                                                                    if result and result.get('filter_form_values', None) and result['filter_form_values'].get(_form_names.name_longitude_decimal_start, None)
+                                                                    else ''
+                                                                    ),
+                                                            placeholder=_('início')
+                                                        ) }}
+                                                        <div class="clear-both"></div>
+                                                    </div>
+
+                                                    <span class="sep">{{ _('e') }}</span>
+
+                                                    <div class="input-wrapper half half2">
+                                                        <!--<i>M</i>-->
+                                                        {{ filter_form[_form_names.name_longitude_decimal_end](
+                                                            value=(
+                                                                    result['filter_form_values'][_form_names.name_longitude_decimal_end]
+                                                                    if result and result.get('filter_form_values', None) and result['filter_form_values'].get(_form_names.name_longitude_decimal_end, None)
+                                                                    else ''
+                                                                    ),
+                                                            placeholder=_('fim')
+                                                        ) }}
+                                                        <div class="clear-both"></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="field submit">
+                                                <input type="submit" name="submit-ads" value="{{ _('Filtrar') }}">
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div id="list-content">
+                                <div id="result-list">
+                                    <div class="list">
+                                        <div class="list-header">
+                                            <div class="highlight photo">*</div>
+                                            <div class="highlight description">
+                                                <div class="item">{{ _('Coleção') }}</div>
+                                                <div class="provider">{{ _('Provedor de Dados') }}</div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                        <div class="list-body">
+                                            {% for collection in result['collections'].items %}
+                                            <div class="list-item">
+                                                <div class="photo">
+                                                    <div class="img-holder">
+                                                        <img src="{{ collection.thumbnail_img.url }}" alt="{{ collection.thumbnail_img.description }}">
+                                                    </div>
+                                                </div>
+                                                <div class="description">
+
+                                                    <div class="item">
+                                                        <h4 class="highlight">
+                                                            <a href="#">{{ collection.full_scientific_name }}</a>
+                                                        </h4>
+                                                        <div class="collection-details">
+                                                            <div class="detail">
+                                                                <span class="label highlight">{{ _('Genus') }}:</span>
+                                                                <span class="value">{{ collection.genus if collection.genus else '--' }}</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                                <span class="label highlight">{{ _('Province') }}:</span>
+                                                                <span class="value">{{ collection.province if collection.province else '--' }}</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                                <span class="label highlight">{{ _('Location (desc)') }}:</span>
+                                                                <span class="value">{{ collection.location if collection.location else '--' }}</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                                <span class="label highlight">{{ _('Location (Lat; Long)') }}:</span>
+                                                                <span class="value">{{ collection.latitude if collection.latitude else '--' }};
+                                                                    {{ collection.longitude if collection.longitude else '--' }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="provider">
+                                                        <h4 class="highlight">{{ collection.provider.abbreviation if collection.provider.abbreviation else '--' }}</h4>
+                                                        <div class="bigger">{{ collection.provider.name if collection.provider.name else '--'}}</div>
+                                                        <div class="details">
+                                                            <span class="label highlight">{{ _('endereço') }}:</span>
+                                                            <span class="value">{{ collection.provider.address if collection.provider.address else '--' }}</span>
+                                                        </div>
+                                                        <div class="details">
+                                                            <span class="label highlight">{{ _('contacto') }}:</span>
+                                                            <span class="value">{{ collection.provider.technical_contact_email if collection.provider.technical_contact_email else '--' }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clear-both"></div>
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if result.get('collections', None) %}
+                                <div id="pagination-list">
+                                        <div class="pages">
+                                        {% if result.get('collections', None).has_prev %}
+                                            <div class="page"><a href="{{ result.get('page_url', None)(result.get('collections', None).prev_num) }}"><code><<</code></a></div>
+                                        {% endif %}
+                                            <div class="page active"><a href="#">{{ result.get('collections', None).page }}</a></div>
+                                        {% if result.get('collections', None).has_next %}
+                                            <div class="page"><a href="{{ result.get('page_url', None)(result.get('collections', None).next_num) }}"><code>>></code></a></div>
+                                        {% endif %}
+                                            <div class="clear-both"></div>
+                                        </div>
+                                </div>
+                               {% endif %}
+
+                            </div>
+                            <div class="clear-both"></div>
+
+                        </div>
+                    </div>
+                </div>
+        {% endif %}
+{% endblock %}

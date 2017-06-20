@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+                <div class="wrapper main">
+                    <div class="featured">{{ _('Dados provenientes de instituições parceiras') }}</div>
+                    <div class="partner-statistics">
+                    {% for provider in _data[0]["partner_stats"] %}
+                        <div class="partner-stats">
+                            <img src="{{ provider.logo.url }}" alt="{{ provider.logo.description }}" height="47">
+                            <span>{{ provider.nr_collections }}</span>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                <hr/>
+                <div class="wrapper">
+                    <div class="about-initiative">
+                        <h4>{{ _('Sobre a iniciativa') }}</h4>
+                        <p class="initiative-intro">{{ _('Mozambique  is  characterized  by  an outstanding  variety  of  terrestrial, marine  and freshwater  ecosystems,  which  host  a  valuable  diversity  of  species  (flora  and  fauna).') }}</p>
+                        <div class="initiative">
+                            <img src="/static/images/rural.png">
+                            <p>{{ _('More than half of  the  Mozambican  population, estimated  at  28  million  people, lives in   rural   areas, and depends directly on biodiversity resources and ecosystem services.') }}</p>
+                        </div>
+
+                        <div class="initiative">
+                            <img src="/static/images/conservation.png">
+                            <p>{{ _('To conserve this key asset of the country, good quality data are needed for research and land use planning.') }}</p>
+                        </div>
+                        <div class="initiative">
+                            <img src="/static/images/partnership.png">
+                            <p>{{ _('Born form a partnership between Italian Agency for Development Cooperation, UEM and MITADER, the Biodiversity Network of Mozambique (BioNoMo) provides research-grade primary biodiversity data from leading national universities, research centres, and conservation areas.') }}</p>
+                        </div>
+                        <div class="clear-both"></div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <h4>{{ _('Coleções visualizadas com maior frequência') }}</h4>
+                        <div id="top-colletions">
+                        {% for provider in _data[0]["providers"] %}
+                            <div class="top-collection">
+                                <h3>{{ provider.full_name }}</h3>
+                                <div class="collection-list">
+                                {% for collection in provider.collection_list.limit(5) %}
+                                    <a href="" class="collection">
+                                        <div class="img-holder">
+                                            <img src="{{ collection.thumbnail_img.url }}" alt="{{ collection.thumbnail_img.description }}">
+                                        </div>
+                                        <span>{{ collection.full_scientific_name }}</span>
+                                    </a>
+                                {% endfor %}
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <hr/>
+                    <div>
+                        <h4>{{ _('Parceiros') }}</h4>
+                        <div id="stakeholders">
+                        {% for stakeholder_image in _data[0]['stakeholders'].values() %}
+                            <img src="{{ stakeholder_image.url }}" alt="{{ stakeholder_image.description }}" height="{{ stakeholder_image.height if stakeholder_image.height else 50 }}">
+                        {% endfor %}
+                            <div>
+                            {% for stakeholder_image in _data[0]['stakeholders_big'].values() %}
+                                <img src="{{ stakeholder_image.url }}" alt="{{ stakeholder_image.description }}" height="{{ stakeholder_image.height if stakeholder_image.height else 80 }}">
+                            {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}

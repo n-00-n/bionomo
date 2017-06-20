@@ -1,0 +1,341 @@
+# Italian translations for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-06-05 20:04+0200\n"
+"PO-Revision-Date: 2017-06-05 20:07+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+msgid "locale"
+msgstr "it"
+
+msgid "lang"
+msgstr "en"
+
+msgid "Software Developer"
+msgstr "Sviluppatore di software"
+
+msgid "Born form a partnership between Italian Agency for Development Cooperation, UEM and MITADER, the Biodiversity Network of Mozambique (BioNoMo) provides research-grade primary biodiversity data from leading national universities, research centres, and conservation areas."
+msgstr "Nato da una partnership tra l'Agenzia italiana per la cooperazione allo sviluppo, UEM e MITADER, la rete di biodiversità del Mozambico (BioNoMo) fornisce dati primari di biodiversità della ricerca dalle principali università nazionali, centri di ricerca e aree di conservazione."
+
+msgid "To conserve this key asset of the country, good quality data are needed for research and land use planning."
+msgstr "Per conservare questo patrimonio chiave del paese, sono necessari dati di buona qualità per la ricerca e la pianificazione dell'uso del suolo."
+
+msgid "More than half of  the  Mozambican  population, estimated  at  28  million  people, lives in   rural   areas, and depends directly on biodiversity resources and ecosystem services."
+msgstr "Più della metà della popolazione mozambicana, stimata a 28 milioni di persone, vive nelle aree rurali e dipende direttamente dalle risorse della biodiversità e dai servizi ecosistemici."
+
+msgid "Mozambique  is  characterized  by  an outstanding  variety  of  terrestrial, marine  and freshwater  ecosystems,  which  host  a  valuable  diversity  of  species  (flora  and  fauna)."
+msgstr "Il Mozambico è caratterizzato da una straordinaria varietà di ecosistemi terrestri, marini e d'acqua dolce, che ospitano una preziosa diversità di specie (flora e fauna)."
+
+msgid "Sobre a iniciativa"
+msgstr "Informazioni sull'Iniziativa"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Parâmetros inválidos."
+msgstr "Parametri non validi"
+
+msgid "O campo dever ter valor superior ao %(other_label)s."
+msgstr "Il campo deve essere maggiore di %(other_label)s."
+
+msgid "O campo dever ter valor inferior ao %(other_label)s."
+msgstr "Il campo deve essere inferiore a %(other_label)s."
+
+msgid "Latitude"
+msgstr "Latitudine"
+
+msgid "Longitude"
+msgstr "Longitudine"
+
+msgid "dados_bionomo"
+msgstr "dati_bionomo"
+
+msgid "dados"
+msgstr "dati"
+
+msgid "header.identification_person"
+msgstr "Persona di identificazione"
+
+msgid "header.authorship"
+msgstr "Paternità"
+
+msgid "header.taxonomy"
+msgstr "Albero di classificazione"
+
+msgid "header.unit_id"
+msgstr "Codice"
+
+msgid "header.provider"
+msgstr "Istituzione"
+
+msgid "header.scientific_name"
+msgstr "Nome scientifico"
+
+msgid "header.genus"
+msgstr "Genere"
+
+msgid "header.species"
+msgstr "Specie"
+
+msgid "header.province"
+msgstr "Província"
+
+msgid "header.district"
+msgstr "Distrito"
+
+msgid "header.last_date"
+msgstr "Ultimo appuntamento"
+
+msgid "header.latitude"
+msgstr "Latitudine"
+
+msgid "header.longitude"
+msgstr "Longitudine"
+
+msgid "(descrição)"
+msgstr "(descrizione)"
+
+msgid "(latitude)"
+msgstr "(latitudine)"
+
+msgid "(longitude)"
+msgstr "(longitudine)"
+
+msgid "início"
+msgstr "iniziare"
+
+msgid "fim"
+msgstr "terminare"
+
+msgid "(descrição)"
+msgstr "(description)"
+
+msgid "Not a valid choice"
+msgstr "Non è una scelta valida"
+
+msgid "Not a valid date value"
+msgstr "Invalid format for date. Use dd/mm/aaaa. Ex: 20/05/2000"
+
+msgid "Not a valid decimal value"
+msgstr "Non un valore decimale valido!"
+
+#: bionomo_pilot/forms.py:28
+msgid "Entre o nome científico de seguida <ENTER>"
+msgstr "Inserisci il nome scientifico e premi <ENTER>"
+
+msgid "Entre o nome cientifico de seguida <ENTER>"
+msgstr "Inserisci il nome scientifico e premi <ENTER>"
+
+#: bionomo_pilot/forms.py:32
+msgid "Por favor submeta um nome científico"
+msgstr "Si prega di inviare un nome scientifico"
+
+#: bionomo_pilot/forms.py:69 bionomo_pilot/forms.py:70
+msgid "permitido valores no intervalo de -180 a 180"
+msgstr "Valori consentiti nell'intervallo da -180 a 180"
+
+#: bionomo_pilot/view.py:66
+#, python-format
+msgid "não foram encontradas coleções para a procurar: '%(search_input)s'"
+msgstr "Non sono state trovate collezioni da cercare: '%(search_input)s'"
+
+msgid "não foram encontradas coleções para a procurar: "
+msgstr "Non sono state trovate collezioni da cercare: "
+
+#: bionomo_pilot/view.py:94
+msgid "não foram encontradas coleções para o seu critério de procura!"
+msgstr "Non sono state trovate collezioni per i criteri di ricerca!"
+
+#: bionomo_pilot/templates/base.html:9
+#: bionomo_pilot/templates/landing_page_bkp.html:9
+msgid "BioNoMo - Versão Piloto"
+msgstr "BioNoMo - Versione Pilota"
+
+#: bionomo_pilot/templates/base.html:23
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a "
+"href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your"
+" experience."
+msgstr ""
+"Stai utilizzando un browser <strong> obsoleto </strong>. <a"
+"href = \" http: //browsehappy.com/ \ \"> aggiorna il tuo browser </a> per migliorare il tuo"
+" esperienza."
+
+#: bionomo_pilot/templates/base.html:58
+msgid "Sobre o projecto"
+msgstr "Sul progetto"
+
+#: bionomo_pilot/templates/base.html:59
+msgid "Iniciativa"
+msgstr "Iniziativa"
+
+#: bionomo_pilot/templates/base.html:60
+#: bionomo_pilot/templates/landing_page.html:40
+msgid "Parceiros"
+msgstr "Partner"
+
+#: bionomo_pilot/templates/base.html:61
+msgid "Contactos"
+msgstr "Contatto"
+
+#: bionomo_pilot/templates/base.html:67
+#: bionomo_pilot/templates/landing_page_bkp.html:51
+msgid ""
+"Versão Piloto da rede de biodiversidades de Moçambique: um portal para "
+"acesso a informação de biodiversidades."
+msgstr ""
+"Versione della rete di biodiversità del Mozambico: un portale "
+"per informazioni sulla biodiversità"
+
+#: bionomo_pilot/templates/base.html:95
+msgid "Procura avançada"
+msgstr "Ricerca avanzata"
+
+#: bionomo_pilot/templates/base.html:115
+msgid "Nome Científico"
+msgstr "Nome scientifico"
+
+#: bionomo_pilot/templates/base.html:121
+msgid "O nome científico"
+msgstr "Il nome scientifico"
+
+#: bionomo_pilot/templates/base.html:125
+#: bionomo_pilot/templates/search_results.html:43
+msgid "Província"
+msgstr "Provincia"
+
+#: bionomo_pilot/templates/base.html:143
+msgid "Localização"
+msgstr "Luogo"
+
+#: bionomo_pilot/templates/base.html:143
+msgid "(lat - long)"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:145
+msgid "latitude"
+msgstr "latitudine"
+
+#: bionomo_pilot/templates/base.html:146
+#: bionomo_pilot/templates/search_results.html:58
+msgid "e"
+msgstr ""
+
+#: bionomo_pilot/templates/base.html:147
+msgid "longitude"
+msgstr "longitudine"
+
+#: bionomo_pilot/templates/base.html:152
+msgid "<span>Localização:</span> <span> (descrição)</span></div>"
+msgstr "<span>Luogo:</span> <span> (descrizione)</span></div>"
+
+#: bionomo_pilot/templates/base.html:154
+msgid "descrição da localização, distrito, localidade, etc."
+msgstr "Descrizione della località, del distretto, della posizione, ecc."
+
+#: bionomo_pilot/templates/base.html:160
+msgid "Procurar"
+msgstr "Ricerca"
+
+#: bionomo_pilot/templates/base.html:176
+msgid "Uma parceria entre"
+msgstr "Un partenariato tra"
+
+#: bionomo_pilot/templates/base.html:186
+msgid "Com o apoio de"
+msgstr "Con il supporto di"
+
+#: bionomo_pilot/templates/base.html:195
+msgid "Um projecto de"
+msgstr "Un progetto di"
+
+#: bionomo_pilot/templates/base.html:198
+msgid ""
+"UEM Department of Biological Sciences, Room B7. <br>Campus Principal UEM,"
+" Av. Julius Nyerere 3545, Maputo MZ"
+msgstr ""
+"Dipartimento di Scienze Biologiche, Sala B7. <br> Campus Principale UEM,"
+" Av. Julius Nyerere 3545, Maputo Mozambico."
+
+
+#: bionomo_pilot/templates/base.html:203
+msgid "Todos os direitos reservados."
+msgstr "Tutti i diritti riservati"
+
+#: bionomo_pilot/templates/base.html:204
+msgid "Desenvolvido por"
+msgstr "Sviluppato da"
+
+#: bionomo_pilot/templates/landing_page.html:6
+msgid "Dados provenientes de instituições parceiras"
+msgstr "Dati delle istituzioni partner"
+
+#: bionomo_pilot/templates/landing_page.html:19
+msgid "Coleções visualizadas com maior frequência"
+msgstr "Collezioni più frequenti"
+
+#: bionomo_pilot/templates/search_results.html:14
+msgid "Ver no mapa"
+msgstr "Vedi sulla mappa"
+
+#: bionomo_pilot/templates/search_results.html:15
+msgid "Baixar .CSV"
+msgstr "Scarica .CSV"
+
+#: bionomo_pilot/templates/search_results.html:29
+msgid "Instituição"
+msgstr "Istituzione"
+
+#: bionomo_pilot/templates/search_results.html:55
+msgid "<span>Localização:</span> <span>(lat - long)</span>"
+msgstr "<span>Posizione:</span> <span>(lat - long)</span>"
+
+#: bionomo_pilot/templates/search_results.html:64
+msgid "Filtrar"
+msgstr "Filtro"
+
+#: bionomo_pilot/templates/search_results.html:77
+msgid "Coleção"
+msgstr "Collezione"
+
+#: bionomo_pilot/templates/search_results.html:78
+msgid "Provedor de Dados"
+msgstr "Fornitore di dati"
+
+#: bionomo_pilot/templates/search_results.html:97
+msgid "Genus"
+msgstr "Genere"
+
+#: bionomo_pilot/templates/search_results.html:101
+msgid "Province"
+msgstr "Provincia"
+
+#: bionomo_pilot/templates/search_results.html:105
+msgid "Location (desc)"
+msgstr "Posizione (disc)"
+
+#: bionomo_pilot/templates/search_results.html:109
+msgid "Location (Lat; Long)"
+msgstr "Posizione (lat; long)"
+
+#: bionomo_pilot/templates/search_results.html:119
+msgid "endereço"
+msgstr "indirizzo"
+
+#: bionomo_pilot/templates/search_results.html:123
+msgid "contacto"
+msgstr "contatto"
+

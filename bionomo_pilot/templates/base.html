@@ -1,0 +1,383 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ _('BioNoMo - Versão Piloto') }}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" />
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.typeahead.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
+
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">{{ _('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.') }}</p>
+        <![endif]-->
+        <div class="outter-wapper" style="position: relative;">
+
+            <div id="languages">
+                <div class="hide-text">
+                    <a href="{{ _langs['pt'] }}" class="{{'active' if selected_locale == 'pt' else ''}}">
+                        <img src="{{ _data[0]['images']['flag_url_pt'].url }}" alt="{{ _data[0]['images']['flag_url_pt'].description }}"> <span>Português</span>
+                    </a>
+                </div>
+                <div class="hide-text">
+                        <a href="{{ _langs['en'] }}" class="{{'active' if selected_locale == 'en' else ''}}">
+                            <img src="{{ _data[0]['images']['flag_url_uk'].url }}" alt="{{ _data[0]['images']['flag_url_uk'].description }}"> <span>English</span>
+                        </a>
+                </div>
+                <div class="hide-text" style="display: none">
+                    <a href="{{ _langs['it'] }}" class="{{'active' if selected_locale == 'it' else ''}}">
+                        <img src="{{ _data[0]['images']['flag_url_it'].url }}" alt="{{ _data[0]['images']['flag_url_it'].description }}"> <span>Italiano</span>
+                    </a>
+                </div>
+                <div class="hide-text" style="display: none">
+                    <a href="{{ _langs['fr'] }}" class="{{'active' if selected_locale == 'fr' else ''}}">
+                        <img src="{{ _data[0]['images']['flag_url_fr'].url }}" alt="{{ _data[0]['images']['flag_url_fr'].description }}"> <span>Français</span>
+                    </a>
+                </div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="header-container" style="/*overflow: hidden; background-image: url('/static/images/cut.jpg');*/">
+                <header class="wrapper clearfix">
+                    <div style="">
+                        <div class="title" id="logo">
+                            <a href="{{ url_for('index') }}"><img src="{{ _data[0]['images']['logo_url_main'].url }}" alt="{{ _data[0]['images']['logo_url_main'].description }}" width="190"></a>
+                        </div>
+                        <nav class="clearfix">
+                            <ul class="clearfix">
+                                <li><a href="#">{{ _('Sobre o projecto') }}</a></li>
+                                <li><a href="#">{{ _('Iniciativa') }}</a></li>
+                                <li><a href="#">{{ _('Parceiros') }}</a></li>
+                                <li><a href="#">{{ _('Contactos') }}</a></li>
+                            </ul>
+                        </nav>
+                        <p style="margin: 0; padding: 0; clear: both"></p>
+                    </div>
+                    <p id="featured-text" class="clearfix">
+                        {{ _('Versão Piloto da rede de biodiversidades de Moçambique: um portal para acesso a informação de biodiversidades.') }}
+                    </p>
+                    <div id="search-bar">
+                        <form action="{{ url_for('view_results') }}" method="GET" id="form">
+                        <div class="typeahead__container" style="margin-bottom: 15px;">
+                            <div class="typeahead__field">
+
+                                <span class="typeahead__query">
+
+                                {{ forms['simple'][_form_names.name_full_scientific_name_string](
+                                    size=20,
+                                    value=(
+                                            result['simple_form_values'][_form_names.name_full_scientific_name_string]
+                                            if result and result.get('simple_form_values', None) and result['simple_form_values'].get(_form_names.name_full_scientific_name_string, None)
+                                            else ''
+                                        ),
+                                    placeholder=_('Entre o nome científico de seguida <ENTER>'),
+                                    **{'autocomplete':'off', 'class':'main-search-input'}
+                                    )
+                                }}
+                                </span>
+
+                            </div>
+                        </div>
+
+                            {{ forms['simple'].flag }}
+
+                            {% with info_messages = get_flashed_messages(category_filter=["info"]) %}
+                                {% if info_messages %}
+                                    {% for info_message in info_messages %}
+                                        <div class="field-info">{{ info_message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+
+                            {% with main_errors = get_flashed_messages(category_filter=["error-main"]) %}
+                                {% if main_errors %}
+                                    {% for main_error in main_errors %}
+                                        <div class="field-error">{{ main_error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </form>
+                    </div>
+
+                    <div id="advanced-area">
+                        <div>
+                            <a id="ads-link" href="#">{{ _('Procura avançada') }}</a>
+                        </div>
+                        <div id="ads-form-wapper">
+                            {% with info_messages = get_flashed_messages(category_filter=["info-advanced"]) %}
+                                {% if info_messages %}
+                                    {% for info_message in info_messages %}
+                                        <div class="field-info">{{ info_message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+
+                            {% with main_errors = get_flashed_messages(category_filter=["error-advanced"]) %}
+                                {% if main_errors %}
+                                    {% for main_error in main_errors %}
+                                        <div class="field-error">{{ main_error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <form action="{{ url_for('view_results') }}" method="GET" id="advanced_form">
+                                {{ forms['advanced'].flag }}
+                                <div class="field">
+                                    <div class="label">{{ _('Nome Científico') }} *:</div>
+                                    <div class="input">
+                                        <div class="input-wrapper">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_full_scientific_name_string](
+                                                    value=(
+                                                            result['advanced_form_values'][_form_names.name_full_scientific_name_string]
+                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_full_scientific_name_string, None)
+                                                            else ''
+                                                        ),
+                                                    placeholder=_('Entre o nome científico de seguida <ENTER>'),
+                                                    **{'autocomplete':'off'}
+                                                )
+                                            }}
+                                        </div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div class="field">
+                                    <div class="label">{{ _('Província') }}:</div>
+                                    <div class="input">
+                                        {{ forms['advanced'][_form_names.name_province](
+                                                value=(
+                                                        result['advanced_form_values'][_form_names.name_province]
+                                                        if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_province, None)
+                                                        else ''
+                                                        ),
+                                                **{'autocomplete':'off'}
+                                                )
+                                        }}
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div class="field">
+                                    <div class="label"><span>{{ _('Data')}}:</span> <span>{{ _('(dd/mm/AAAA)') }}</span></div>
+
+                                    <div class="input">
+                                        <div class="input-wrapper half">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_last_date_start](
+                                                value=(
+                                                        result['advanced_form_values'][_form_names.name_last_date_start]
+                                                        if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_last_date_start, None)
+                                                        else ''
+                                                        ),
+                                                placeholder=_('início'),
+                                                class="datepicker-here",
+                                                **{'data-language': _('lang'), 'autocomplete':'off'}
+                                                )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+
+                                        <span class="sep">{{ _('e') }}</span>
+
+                                        <div class="input-wrapper half half2">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_last_date_end](
+                                                value=(
+                                                        result['advanced_form_values'][_form_names.name_last_date_end]
+                                                        if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_last_date_end, None)
+                                                        else ''
+                                                        ),
+                                                placeholder=_('fim'),
+                                                class="datepicker-here",
+                                                **{'data-language': _('lang'), 'autocomplete': 'off'}
+                                                )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div class="field">
+                                    <div class="label"><span>{{ _('Localização')}}:</span> <span>{{ _('(latitude)') }}</span></div>
+                                    <div class="input">
+                                        <div class="input-wrapper half">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_latitude_decimal_start](
+                                                    value=(
+                                                            result['advanced_form_values'][_form_names.name_latitude_decimal_start]
+                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_start, None)
+                                                            else ''
+                                                            ),
+                                                    placeholder=_('início'),
+                                                    class='float-input',
+                                                    **{'autocomplete':'off'}
+                                                    )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+
+                                        <span class="sep">{{ _('e') }}</span>
+
+                                        <div class="input-wrapper half half2">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_latitude_decimal_end](
+                                                    value=(
+                                                            result['advanced_form_values'][_form_names.name_latitude_decimal_end]
+                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_end, None)
+                                                            else ''
+                                                            ),
+                                                    placeholder=_('fim'),
+                                                    class='float-input',
+                                                    **{'autocomplete':'off'}
+                                                )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div class="field">
+                                    <div class="label"><span>{{ _('Localização')}}:</span> <span>{{ _('(longitude)') }}</span></div>
+                                    <div class="input">
+                                        <div class="input-wrapper half">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_longitude_decimal_start](
+                                                    value=(
+                                                            result['advanced_form_values'][_form_names.name_longitude_decimal_start]
+                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_start, None)
+                                                            else ''
+                                                            ),
+                                                    placeholder=_('início'),
+                                                    class='float-input',
+                                                    **{'autocomplete':'off'}
+                                                    )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+
+                                        <span class="sep">{{ _('e') }}</span>
+                                        <div class="input-wrapper half half2">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{ forms['advanced'][_form_names.name_longitude_decimal_end](
+                                                    value=(
+                                                            result['advanced_form_values'][_form_names.name_longitude_decimal_end]
+                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_end, None)
+                                                            else ''
+                                                            ),
+                                                    placeholder=_('fim'),
+                                                    class='float-input',
+                                                    **{'autocomplete':'off'}
+                                                    )
+                                            }}
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div class="field submit">
+                                    <input type="submit" name="submit-ads" value="{{ _('Procurar') }}">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clear-both"></div>
+                </header>
+            </div>
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            
+            <div class="footer-container">
+                <footer class="wrapper">
+                    <div class="partnership">
+                        <span>{{ _('Uma parceria entre') }}:</span>
+                        <div class="partners">
+                            <div class="partner">
+                                <img src="{{ _data[0]['images']['logo_url_uem'].url }}" alt="{{ _data[0]['images']['logo_url_uem'].description }}" width="90">
+                            </div>
+                            <div class="partner">
+                                <img src="{{ _data[0]['images']['logo_url_sapienza'].url }}" alt="{{ _data[0]['images']['logo_url_sapienza'].description }}" width="90">
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                        <span>{{ _('Com o apoio de') }}:</span>
+                        <div class="supporters">
+                            <div class="supporter">
+                                <img src="{{ _data[0]['images']['logo_url_aics'].url }}" alt="{{ _data[0]['images']['logo_url_aics'].description }}" width="200">
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <span>{{ _('Um projecto de') }}:</span>
+                        <h4 class="org-accr">SECOSUD II</h4>
+                        <h4 class="org-name">Conservation and equitable use of biological diversity in the SADC region</h4>
+                        <div class="address">{{ _('UEM Department of Biological Sciences, Room B7. <br>Campus Principal UEM, Av. Julius Nyerere 3545, Maputo MZ') }}</div>
+                        <div class="contacts"><span><i class="fa fa-phone" aria-hidden="true"></i>Tel: (+258) 844 123 4567.</span> <span><i class="fa fa-envelope" aria-hidden="true"></i>Email: secosud@something.co.mz</span></div>
+                    </div>
+                    <div class="developer">
+                        <span style="display: block;">Copyright &copy; 2017.</span>
+                        <div>{{ _('Todos os direitos reservados.') }}</div>
+                        <span style="display: block; margin-top: 15px;">{{ _('Desenvolvido por') }}:</span>
+
+
+                        <div class="developer-name">
+                            <div id="the_coder_content">
+                                <div class="_name">Silvino Guambe Júnior</div>
+                                <div>{{ _('Software Developer') }}</div>
+                                <div class="email">{ guambejr@gmail.com }</div>
+                            </div>
+                            <a href="#" id="the_coder_ref">
+                                <span>Silvino</span>
+                                <span>Guambe</span>
+                                <span>Jr.</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clear-both"></div>        
+                </footer>
+            </div>            
+        </div>
+        <div style="display: none">
+            <span id="msg_no_collections">{{ _('não foram encontradas coleções para a procurar: ') }}</span>
+            <span id="locale">{{ _('locale') }}</span>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-2.1.0.min.js') }}"><\/script>')</script>
+
+        <script src="{{url_for('static', filename='js/vendor/datepicker.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/jquery.typeahead.js')}}"></script>
+        <script src="{{url_for('static', filename='js/vendor/datepicker.en.js')}}"></script>
+        <script src="{{url_for('static', filename='js/vendor/datepicker.pt.js')}}"></script>
+        <script src="{{url_for('static', filename='js/vendor/numericInput.min.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPuT-H0BBH-PWOuG4iOx6XiVoXETIAGJs&callback=myMap">
+        </script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
