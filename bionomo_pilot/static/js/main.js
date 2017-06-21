@@ -93,6 +93,18 @@ function main() {
                 }
             }
         );
+        $("#the_coder_ref").click(function(event){
+            event.preventDefault();
+
+            var el = $("#the_coder_content");
+            if (!el.hasClass("sliding")){
+                    el.addClass("sliding");
+                    el.delay(100).slideToggle( 250, function() {
+                        el.removeClass("sliding");
+                    });
+                }
+
+        });
 
         //now for the links on the result page
         $("#result-options .links-wrapper .links .map").removeClass("hidden");

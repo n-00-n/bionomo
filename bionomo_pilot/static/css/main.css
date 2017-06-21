@@ -921,12 +921,36 @@ a#ads-link.active,
    ========================================================================== */
 
 @media only screen and (max-width: 510px) {
+    .header-container nav ul {
+        margin-top: 20px;
+    }
+
     #ads-form-wapper .half {
         width: 36%;
     }
 
     #ads-form-wapper .input .half input {
         width: 67%;
+    }
+
+    #stakeholders > img {
+        width: 25%;
+        height: auto;
+    }
+
+    #stakeholders .stakeholders-big img {
+        width: 80%;
+        height: auto;
+    }
+
+    #result-list .list .photo,
+    #result-list .list .description{
+        float: none;
+    }
+
+    #result-list .list .item,
+    #result-list .list .provider {
+        padding-left: 0;
     }
 }
 
