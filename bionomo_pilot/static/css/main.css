@@ -930,16 +930,19 @@ a#ads-link.active,
     }
 
     #ads-form-wapper .input .half input {
-        width: 67%;
+        width: 63%;
     }
 
     #stakeholders > img {
         width: 25%;
         height: auto;
     }
-
+    #stakeholders .stakeholders-big {
+        width: 90%;
+        margin: 0 auto;
+    }
     #stakeholders .stakeholders-big img {
-        width: 80%;
+        width: 90%;
         height: auto;
     }
 
