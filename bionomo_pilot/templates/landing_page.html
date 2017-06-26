@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block pagetitle %} {{ _('Página inicial') }} {% endblock %}
 {% block content %}
 
                 <div class="wrapper main">
@@ -62,7 +62,7 @@
                         {% for stakeholder_image in _data[0]['stakeholders'].values() %}
                             <img src="{{ stakeholder_image.url }}" alt="{{ stakeholder_image.description }}" height="{{ stakeholder_image.height if stakeholder_image.height else 50 }}">
                         {% endfor %}
-                            <div>
+                            <div class="stakeholders-big">
                             {% for stakeholder_image in _data[0]['stakeholders_big'].values() %}
                                 <img src="{{ stakeholder_image.url }}" alt="{{ stakeholder_image.description }}" height="{{ stakeholder_image.height if stakeholder_image.height else 80 }}">
                             {% endfor %}

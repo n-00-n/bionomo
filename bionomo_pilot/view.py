@@ -39,16 +39,6 @@ def index():
     return render_template('landing_page.html', _fields=b_c, form=form)
 
 
-@app.route('/test')
-def get_test():
-    return render_template('index.html')
-
-
-@app.route('/demo_user')
-def get_demo():
-    return render_template('demo-user_v1.html')
-
-
 @app.route('/async/scientific_name')
 @app.route('/async/scientific_name/')
 @app.route('/async/scientific_name/<scientific_name>/<lang>')

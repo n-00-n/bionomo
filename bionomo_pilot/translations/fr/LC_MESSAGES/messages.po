@@ -24,6 +24,24 @@ msgstr "fr"
 msgid "lang"
 msgstr "en"
 
+msgid "Resultados da procura"
+msgstr "Résultats de la recherche"
+
+msgid "Página Inicial"
+msgstr "Page d'accueil"
+
+msgid "BioNoMo - Rede de Biodiversidade de Moçambique"
+msgstr "BioNoMo - Réseau de biodiversité du Mozambique"
+
+msgid "BioNoMo - Rede de biodiversidade de Moçambique. Biodiversidade em Moçambique."
+msgstr "BioNoMo - Réseau de biodiversité du Mozambique. Biodiversité au Mozambique."
+
+msgid "Rede de biodiversidade de Moçambique, Biodiversidade em Moçambique, SECOSUD II, MITADER, IIAM, UEM, UniSapienza, Museu de História Natural de Maputo."
+msgstr "Réseau de biodiversité du Mozambique, Biodiversité au Mozambique, SECOSUD II, MITADER, IIAM, UEM, UniSapienza, Musée d'histoire naturelle de Maputo."
+
+msgid "Clique para selecionar"
+msgstr "Cliquez pour sélectionner"
+
 msgid "Software Developer"
 msgstr "Développeur de logiciels"
 

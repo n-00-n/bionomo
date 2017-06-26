@@ -1,20 +1,25 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ _('locale') }}"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="{{ _('locale') }}"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="{{ _('locale') }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ _('locale') }}"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ _('BioNoMo - Versão Piloto') }}</title>
-        <meta name="description" content="">
+        <title>{{ _('BioNoMo - Rede de Biodiversidade de Moçambique') }} | {{ _('BioNoMo - Versão Piloto') }} | {% block pagetitle %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="application-name" content="{{ _('BioNoMo - Rede de Biodiversidade de Moçambique') }}" />
+        <meta name="keywords" content="{{ _('Rede de biodiversidade de Moçambique, Biodiversidade em Moçambique, Biodiversidade de Moçambique, SECOSUD II, MITADER, IIAM, UEM, UniSapienza, Museu de História Natural de Maputo.') }}">
+        <meta name="description" content="{{ _('BioNoMo - Rede de biodiversidade de Moçambique. Biodiversidade em Moçambique.') }}">
+        <meta name="author" content="Silvino Guambe Júnior. guambejr@gmail.com">
+
         <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" />
         <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
 
         <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.typeahead.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
@@ -163,7 +168,7 @@
                                                         if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_province, None)
                                                         else ''
                                                         ),
-                                                **{'autocomplete':'off'}
+                                                **{'autocomplete':'off', 'class': 'select-field', 'style': 'width: 90%'}
                                                 )
                                         }}
                                     </div>
@@ -209,78 +214,80 @@
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>
-                                <div class="field">
-                                    <div class="label"><span>{{ _('Localização')}}:</span> <span>{{ _('(latitude)') }}</span></div>
+                                <div class="field no-bottom">
+                                    <div class="label">
+                                        <span>{{ _('Localização')}}:</span>
+                                        <span class="label-sep">[ {{ _('latitude') }} e {{ _('longitude') }} ]</span></div>
                                     <div class="input">
-                                        <div class="input-wrapper half">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ forms['advanced'][_form_names.name_latitude_decimal_start](
-                                                    value=(
-                                                            result['advanced_form_values'][_form_names.name_latitude_decimal_start]
-                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_start, None)
-                                                            else ''
-                                                            ),
-                                                    placeholder=_('início'),
-                                                    class='float-input',
-                                                    **{'autocomplete':'off'}
+                                        <div class="half">
+                                            <div class="input-wrapper">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                {{ forms['advanced'][_form_names.name_latitude_decimal_start](
+                                                        value=(
+                                                                result['advanced_form_values'][_form_names.name_latitude_decimal_start]
+                                                                if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_start, None)
+                                                                else ''
+                                                                ),
+                                                        placeholder=_('início'),
+                                                        class='float-input',
+                                                        **{'autocomplete':'off'}
+                                                        )
+                                                }}
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="vertical-sep"> | </div>
+                                            <div class="input-wrapper">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                {{ forms['advanced'][_form_names.name_latitude_decimal_end](
+                                                        value=(
+                                                                result['advanced_form_values'][_form_names.name_latitude_decimal_end]
+                                                                if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_end, None)
+                                                                else ''
+                                                                ),
+                                                        placeholder=_('fim'),
+                                                        class='float-input',
+                                                        **{'autocomplete':'off'}
                                                     )
-                                            }}
+                                                }}
+                                                <div class="clear-both"></div>
+                                            </div>
                                             <div class="clear-both"></div>
                                         </div>
 
-                                        <span class="sep">{{ _('e') }}</span>
+                                        <span class="sep v-sep">{{ _('e') }}</span>
 
-                                        <div class="input-wrapper half half2">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ forms['advanced'][_form_names.name_latitude_decimal_end](
-                                                    value=(
-                                                            result['advanced_form_values'][_form_names.name_latitude_decimal_end]
-                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_latitude_decimal_end, None)
-                                                            else ''
-                                                            ),
-                                                    placeholder=_('fim'),
-                                                    class='float-input',
-                                                    **{'autocomplete':'off'}
-                                                )
-                                            }}
-                                            <div class="clear-both"></div>
-                                        </div>
-                                    </div>
-                                    <div class="clear-both"></div>
-                                </div>
-                                <div class="field">
-                                    <div class="label"><span>{{ _('Localização')}}:</span> <span>{{ _('(longitude)') }}</span></div>
-                                    <div class="input">
-                                        <div class="input-wrapper half">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ forms['advanced'][_form_names.name_longitude_decimal_start](
-                                                    value=(
-                                                            result['advanced_form_values'][_form_names.name_longitude_decimal_start]
-                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_start, None)
-                                                            else ''
-                                                            ),
-                                                    placeholder=_('início'),
-                                                    class='float-input',
-                                                    **{'autocomplete':'off'}
-                                                    )
-                                            }}
-                                            <div class="clear-both"></div>
-                                        </div>
-
-                                        <span class="sep">{{ _('e') }}</span>
-                                        <div class="input-wrapper half half2">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ forms['advanced'][_form_names.name_longitude_decimal_end](
-                                                    value=(
-                                                            result['advanced_form_values'][_form_names.name_longitude_decimal_end]
-                                                            if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_end, None)
-                                                            else ''
-                                                            ),
-                                                    placeholder=_('fim'),
-                                                    class='float-input',
-                                                    **{'autocomplete':'off'}
-                                                    )
-                                            }}
+                                        <div class="half half2">
+                                            <div class="input-wrapper">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                {{ forms['advanced'][_form_names.name_longitude_decimal_start](
+                                                        value=(
+                                                                result['advanced_form_values'][_form_names.name_longitude_decimal_start]
+                                                                if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_start, None)
+                                                                else ''
+                                                                ),
+                                                        placeholder=_('início'),
+                                                        class='float-input',
+                                                        **{'autocomplete':'off'}
+                                                        )
+                                                }}
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="vertical-sep"> | </div>
+                                            <div class="input-wrapper">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                {{ forms['advanced'][_form_names.name_longitude_decimal_end](
+                                                        value=(
+                                                                result['advanced_form_values'][_form_names.name_longitude_decimal_end]
+                                                                if result and result.get('advanced_form_values', None) and result['advanced_form_values'].get(_form_names.name_longitude_decimal_end, None)
+                                                                else ''
+                                                                ),
+                                                        placeholder=_('fim'),
+                                                        class='float-input',
+                                                        **{'autocomplete':'off'}
+                                                        )
+                                                }}
+                                                <div class="clear-both"></div>
+                                            </div>
                                             <div class="clear-both"></div>
                                         </div>
                                     </div>
@@ -299,7 +306,6 @@
                 {% block content %}
                 {% endblock %}
             </div>
-            
             <div class="footer-container">
                 <footer class="wrapper">
                     <div class="partnership">
@@ -353,6 +359,7 @@
         </div>
         <div style="display: none">
             <span id="msg_no_collections">{{ _('não foram encontradas coleções para a procurar: ') }}</span>
+            <span id="msg_click_to_select">{{ _('Clique para selecionar') }}</span>
             <span id="locale">{{ _('locale') }}</span>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
@@ -363,6 +370,7 @@
         <script src="{{url_for('static', filename='js/vendor/datepicker.en.js')}}"></script>
         <script src="{{url_for('static', filename='js/vendor/datepicker.pt.js')}}"></script>
         <script src="{{url_for('static', filename='js/vendor/numericInput.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/vendor/select2.min.js')}}"></script>
 
         <script src="{{url_for('static', filename='js/main.js')}}"></script>
         <script async defer

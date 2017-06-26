@@ -130,6 +130,10 @@ function main() {
             }
         });
 
+        $(".select-field").select2({
+            placeholder: $("#msg_click_to_select").text()
+        });
+
         $("#maps").addClass("hide-map");
         $("#maps").addClass("map-hidden");
 

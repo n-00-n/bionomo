@@ -22,8 +22,8 @@ class Config(object):
 class DevelopmentConfig(Config):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = '2000'
-    SQLALCHEMY_DATABASE_URI = 'mysql://ct5zpqnonuj4yzxt:oe4j63qqgbraembs@d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ihnk2l2rtodwc0un'
-    # SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/bionomo_dev'
+    # SQLALCHEMY_DATABASE_URI = 'mysql://ct5zpqnonuj4yzxt:oe4j63qqgbraembs@d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ihnk2l2rtodwc0un'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/bionomo_dev'
 
 
 class TestConfig(Config):
