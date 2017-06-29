@@ -385,6 +385,14 @@ def download_csv():
     return abort(404)
 
 
+@app.route('/favicon')
+@app.route('/favicon/')
+@app.route('/favicon.ico')
+@app.route('/favicon.ico/')
+def server_favicon():
+    return send_from_directory(_multimedia_dir, 'favicon.ico')
+
+
 @app.route(_multimedia_endpoint + '/<base64_multimedia_id>')
 @app.route(_multimedia_endpoint + '/<base64_multimedia_id>/<base64_multimedia_type>')
 def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
