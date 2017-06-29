@@ -9,6 +9,7 @@ import urllib
 from urlparse import urlparse
 from datetime import datetime
 
+import traceback
 from flask import Response
 from flask import flash, jsonify
 from flask import g
@@ -448,7 +449,15 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
 
 @babel.localeselector
 def get_locale():
-    return g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    # _default_locale = app.config['BABEL_DEFAULT_LOCALE']
+    _default_locale = request.accept_languages.best_match(app.config['SUPPORTED_LANGUAGES'].keys())
+    # get from request_path
+    if len(request.path) > 3:
+        lang_block = request.path[:4]
+        if lang_block in app.config['SUPPORTED_LANGUAGES_PATH']:
+            _default_locale = lang_block[1:3]
+
+    return g.get('lang_code', _default_locale)
     # return request.accept_languages.best_match(app.config['SUPPORTED_LANGUAGES'].keys())
 
 
@@ -500,7 +509,8 @@ def inject_updated_locale_urls():
     if len(request.full_path) > 6:
         _args = []
         for arg, arg_v in request.args.items():
-            _args.append((arg, arg_v))
+            # _args.append((arg, arg_v))
+            _args.append((unicode(arg).encode('utf-8'), unicode(arg_v).encode('utf-8')))
         _request_url = urllib.urlencode(_args)
         if request.path[:4] in app.config['SUPPORTED_LANGUAGES_PATH']:
             _request_url = request.path[3:] + '?' + _request_url
@@ -518,8 +528,15 @@ def inject_updated_locale_urls():
 
 @app.context_processor
 def inject_selected_locale():
-    lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
-    lang_code = lang_code if lang_code else app.config['BABEL_DEFAULT_LOCALE']
+    _default_locale = request.accept_languages.best_match(app.config['SUPPORTED_LANGUAGES'].keys())
+    # get from request_path
+    if len(request.path) > 3:
+        lang_block = request.path[:4]
+        if lang_block in app.config['SUPPORTED_LANGUAGES_PATH']:
+            _default_locale = lang_block[1:3]
+
+    lang_code = g.get('lang_code', _default_locale)
+    lang_code = lang_code if lang_code else _default_locale
     return dict(selected_locale=lang_code)
 
 
@@ -536,3 +553,25 @@ def inject_forms():
     lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
     lang_code = lang_code if lang_code else app.config['BABEL_DEFAULT_LOCALE']
     return dict(forms=forms)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(503)
+def service_not_found(e):
+    return render_template('503.html'), 503
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('503.html'), 500
+
+
+@app.errorhandler(Exception)
+def all_exception_handler(e):
+    app.logger.exception(e)
+    return render_template('503.html')

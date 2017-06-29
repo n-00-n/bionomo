@@ -1,8 +1,10 @@
 # encoding: utf8
+import logging
+from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask_babel import Babel
 from flask_sqlalchemy import SQLAlchemy
-from config import config_by_name
+from config import config_by_name, os_path
 
 
 class Components:
@@ -25,6 +27,11 @@ def create_app(environment):
         pass
 
     # Components.babel.init_app(app)
+
+    handler = RotatingFileHandler(os_path.join(app.config['LOGS_DIR'], 'bionomo.log'), maxBytes=50000, backupCount=10,
+                              encoding='utf-8')
+    handler.setLevel(logging.INFO)
+    Components.app.logger.addHandler(handler)
 
     from . import view
 

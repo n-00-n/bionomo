@@ -4,11 +4,11 @@ import urllib
 from flask import g
 from flask import request
 from flask import url_for
-from wtforms import Form, HiddenField, DecimalField, SelectField, DateField
+from wtforms import Form, HiddenField, DecimalField, SelectField, DateField, SelectMultipleField
 from wtforms import validators
 
 from bionomo_pilot.service.bionomo_service import BioNoMoService
-from hack import gettext, StringField, LessThan, GreaterThan
+from hack import gettext, StringField, LessThan, GreaterThan, Select2MultipleField, ThisSelectField
 
 from constants import Constants as c
 from biocase.constants import Constants as b_c
@@ -96,11 +96,16 @@ class AdvancedSearch(MainSearch):
                        , render_kw={'value': c.form_flags['advanced_search']})
 
     # validators.Optional()
+    name_field = StringField(label=gettext('Nome Científico'),
+                             name=b_c.name_full_scientific_name_string,
+                             validators=[
+                                 validators.Optional()],
+                             render_kw=None)
 
-    province_field = SelectField(label=gettext("Província"),
-                                 choices=[(province, province) for province in service.get_provinces()],
-                                 render_kw={'multiple': '', 'size': len(service.get_provinces())},
-                                 validators=[validators.Optional(),])
+    province_field = ThisSelectField(label=gettext("Província"),
+                                     choices=[(province, province) for province in service.get_provinces()],
+                                     render_kw={'multiple': '', 'size': len(service.get_provinces())},
+                                     validators=[validators.Optional(),])
 
     start_date_field = DateField(label=(gettext("Data") + ' ' + gettext("(inicio)")),
                                  format=c.date_format,
@@ -177,12 +182,6 @@ class FilterSearch(AdvancedSearch):
 
     provider_field = None
     province_field = None
-    if False:
-        province_field = SelectField(label=gettext("Província"),
-                                     # choices=[(province, province) for province in service.get_provinces()],
-                                     # render_kw={'multiple': '', 'size': len(service.get_provinces())},
-                                     validators=[validators.Optional(),])
-
 
     start_latitude_field = None
     end_latitude_field = None
@@ -244,15 +243,16 @@ class FilterSearch(AdvancedSearch):
                     providers = service.get_providers()
                     _provider_choices = [(provider.id, provider.full_name) for provider in providers]
 
-        self.provider_field = SelectField(label=gettext("Instituição"),
-                                          choices=_provider_choices,
-                                          render_kw={'multiple': '', 'size': len(_provider_choices)},
-                                          default=_provider_choices, coerce=int, validators=[validators.Optional(), ])  #validators.DataRequired()
+        self.provider_field = ThisSelectField(label=gettext("Instituição"),
+                                              choices=_provider_choices, coerce=int,
+                                              default=_provider_choices[0][0] if _provider_choices else None,
+                                              render_kw={'multiple': 'multiple', 'size': len(_provider_choices)},
+                                              validators=[validators.Optional()])  #validators.DataRequired()
 
-        self.province_field = SelectField(label=gettext("Província"),
-                                          choices=_province_choices,
-                                          render_kw={'multiple': '', 'size': len(_province_choices)},
-                                          default=_province_choices, coerce=str, validators=[validators.Optional(), ])
+        self.province_field = ThisSelectField(label=gettext("Província"),
+                                              choices=_province_choices,
+                                              render_kw={'multiple': 'multiple', 'size': len(_province_choices)},
+                                              default=_province_choices[0][0] if _province_choices else None, coerce=str, validators=[]) #validators.Optional(),
 
         self.start_latitude_field = DecimalField(label=(gettext("Latitude") + ' (' + gettext("início") + ')'),
                                                  render_kw={"value": _latitude_start if _latitude_start else ''},
@@ -328,3 +328,4 @@ class FilterSearch(AdvancedSearch):
 
         self._unbound_fields = _new_unbound_fields
         super(AdvancedSearch, self).__init__(*args, **kwargs)
+

@@ -1,6 +1,10 @@
 # from flask import render_template
 from flask_babel import _, gettext as gt
-from wtforms import ValidationError
+from werkzeug.utils import escape
+from wtforms import ValidationError, SelectMultipleField, SelectField
+from wtforms.widgets import HTMLString, Select
+from wtforms.widgets import html_params
+# from wtforms.widgets import escape
 
 
 def this_gettext(string, **variables):
@@ -97,3 +101,62 @@ class GreaterThan(object):
 
             raise ValidationError(message % d)
 
+
+class Select2MultipleField(SelectMultipleField):
+
+    def pre_validate(self, form):
+        # Prevent "not a valid choice" error
+        pass
+
+    def process_formdata(self, valuelist):
+        if valuelist:
+            self.data = ",".join(valuelist)
+        else:
+            self.data = ""
+
+
+class SelectWidget(Select):
+    """
+    Add support of choices with ``optgroup`` to the ``Select`` widget.
+    """
+    @classmethod
+    def render_option(cls, value, label, mixed):
+        """
+        Render option as HTML tag, but not forget to wrap options into
+        ``optgroup`` tag if ``label`` var is ``list`` or ``tuple``.
+        """
+        if isinstance(label, (list, tuple)):
+            children = []
+
+            for item_value, item_label in label:
+                item_html = cls.render_option(item_value, item_label, mixed)
+                children.append(item_html)
+
+            html = u'<optgroup label="%s">%s</optgroup>'
+            data = (escape(unicode(value)), u'\n'.join(children))
+        else:
+            coerce_func, data = mixed
+            selected = coerce_func(value) == data
+
+            options = {'value': value}
+
+            if selected:
+                options['selected'] = u'selected'
+            options['selected'] = u'selected'
+
+            html = u'<option %s>%s</option>'
+            data = (html_params(**options), escape(unicode(label)))
+
+        return HTMLString(html % data)
+
+
+class ThisSelectField(SelectField):
+    widget = SelectWidget()
+
+    def iter_choices(self):
+        """
+        We should update how choices are iter to make sure that value from
+        internal list or tuple should be selected.
+        """
+        for value, label in self.choices:
+            yield (value, label, (self.coerce, self.data))

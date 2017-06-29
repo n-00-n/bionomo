@@ -260,7 +260,36 @@ a#ads-link.active,
     text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
+#featured-text h1{
+    font-size: 1.8em;
+    margin-top: 0;
+}
 
+.warning .highlight {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.warning .highlight a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: .85em;
+    line-height: 18px;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    -webkit-transition: background 0.25s;
+    -moz-transition: background 0.25s;
+    -o-transition: background 0.25s;
+    transition: background 0.25s;
+}
+
+.warning .highlight a:hover,
+.warning .highlight a:active {
+    background: rgba(0, 0, 0, 0.4);
+}
 
 #advanced-area {
     margin: 0 auto;
@@ -939,18 +968,13 @@ a#ads-link.active,
     margin-right: 9px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.warning h1 {
+    font-size: 2.5em;
+    margin: 1.2em 0 .5em;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.5em;
+}
 
 /* ==========================================================================
    Media Queries
@@ -1209,6 +1233,9 @@ a#ads-link.active,
         float: right;
     }
 
+    .warning h1 {
+        font-size: 4em;
+    }
 }
 
 @media only screen and (min-width: 1140px) {
@@ -1296,6 +1323,10 @@ a#ads-link.active,
         float: right;
     }
 
+
+    .warning h1 {
+        font-size: 5em;
+    }
 }
 
 /* ==========================================================================

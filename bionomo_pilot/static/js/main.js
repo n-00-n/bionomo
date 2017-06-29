@@ -24,52 +24,58 @@ function main() {
             }
         );
 
-        $(".field .float-input").numericInput({allowFloat: true, allowNegative: true, min:-180, max: 180});
+        if (typeof $().numericInput == 'function') {
+            $(".field .float-input").numericInput({allowFloat: true, allowNegative: true, min:-180, max: 180});
+        }
 
-        //autocomplete
-        $.typeahead({
-            input: '.main-search-input',
-            minLength: 0,
-            order: "asc",
-            dynamic: true,
-            delay: 500,
-            backdrop: {
-                "background-color": "#fff"
-            },
-            template: function (query, item) {
+        if ( typeof $.typeahead == 'function' ) {
+            //autocomplete
+            $.typeahead({
+                input: '.main-search-input',
+                minLength: 0,
+                order: "asc",
+                dynamic: true,
+                delay: 500,
+                backdrop: {
+                    "background-color": "#fff"
+                },
+                template: function (query, item) {
 
-                var color = "#777";
-                if (item.status === "owner") {
-                    color = "#ff1493";
-                }
-                return '<span class="row">{{scientific_name}}</span>'
-            },
-            emptyTemplate: $("#msg_no_collections").text() + "{{query}}",
-            source: {
-                user: {
-                    display: "scientific_name",
-                    href: "{{url}}",
-
-                    ajax: {
-                        "url": "/async/scientific_name/{{query}}/" + $("#locale").text()
+                    var color = "#777";
+                    if (item.status === "owner") {
+                        color = "#ff1493";
                     }
-                }
-            },
-            callback: {
-                onClick: function (node, a, item, event) {
+                    return '<span class="row">{{scientific_name}}</span>'
+                },
+                emptyTemplate: $("#msg_no_collections").text() + "{{query}}",
+                source: {
+                    user: {
+                        display: "scientific_name",
+                        href: "{{url}}",
 
-                    window.location.href =[ selectedName ]+"";
+                        ajax: {
+                            "url": "/async/scientific_name/{{query}}/" + $("#locale").text()
+                        }
+                    }
                 },
-                onSendRequest: function (node, query) {
-                    console.log('request is sent')
+                callback: {
+                    onClick: function (node, a, item, event) {
+
+                        window.location.href =[ selectedName ]+"";
+                    },
+                    onSendRequest: function (node, query) {
+                        console.log('request is sent')
+                    },
+                    onReceiveRequest: function (node, query) {
+                        console.log('request is received')
+                    }
                 },
-                onReceiveRequest: function (node, query) {
-                    console.log('request is received')
-                }
-            },
-            debug: true
-        });
-        setTimeout(function(){$('.main-search-input').focus();}, 10);
+                debug: true
+            });
+            setTimeout(function(){$('.main-search-input').focus();}, 10);
+        }
+
+
 
         //about
         $("#the_coder_content").slideUp( "fast", function() {});
@@ -130,9 +136,11 @@ function main() {
             }
         });
 
-        $(".select-field").select2({
-            placeholder: $("#msg_click_to_select").text()
-        });
+        if ( typeof $().select2 == 'function' ) {
+            $(".select-field").select2({
+                placeholder: $("#msg_click_to_select").text()
+            });
+        }
 
         $("#maps").addClass("hide-map");
         $("#maps").addClass("map-hidden");

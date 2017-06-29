@@ -24,6 +24,24 @@ msgstr "it"
 msgid "lang"
 msgstr "en"
 
+msgid "contacte suporte!"
+msgstr "contattare il supporto"
+
+msgid "Aguarde pacientemente enquanto os serviços voltam a normalidade. Para mais informações"
+msgstr "Attendi pazientemente mentre i servizi ritornano alla normalità. Per ulteriori informazioni"
+
+msgid "Os serviços se encontram temporareamente indisponíveis.<br/>Por favor volte a tentar mais tarde."
+msgstr "I servizi non sono disponibili.<br/>Si prega di riprovare più tardi."
+
+msgid "Service unavailable!"
+msgstr "Servizio non disponibile!"
+
+msgid "Page not found!"
+msgstr "Pagina non trovata!"
+
+msgid "404. Page not found!"
+msgstr "404. Pagina non trovata!"
+
 msgid "Resultados da procura"
 msgstr "Risultati di ricerca"
 
