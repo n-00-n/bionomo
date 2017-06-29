@@ -32,11 +32,18 @@ _multimedia_dir = app.config['MULTIMEDIA_DIR']
 _multimedia_endpoint = app.config['MULTIMEDIA_ENDPOINT']
 
 
+@app.route('/favicon')
+@app.route('/favicon/')
+@app.route('/favicon.ico')
+@app.route('/favicon.ico/')
+def server_favicon():
+    return send_from_directory(_multimedia_dir, 'favicon.ico')
+
+
 @app.route('/')
 @app.route('/<lang_code>')
 @app.route('/<lang_code>/')
 def index():
-    # raise Exception()
     form = MainSearch(request.form)
     return render_template('landing_page.html', _fields=b_c, form=form)
 
@@ -383,14 +390,6 @@ def download_csv():
             abort(404)
 
     return abort(404)
-
-
-@app.route('/favicon')
-@app.route('/favicon/')
-@app.route('/favicon.ico')
-@app.route('/favicon.ico/')
-def server_favicon():
-    return send_from_directory(_multimedia_dir, 'favicon.ico')
 
 
 @app.route(_multimedia_endpoint + '/<base64_multimedia_id>')
