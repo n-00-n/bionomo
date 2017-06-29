@@ -568,23 +568,23 @@ def inject_forms():
     return dict(forms=forms)
 
 
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
-#     return render_template('404.html'), 404
-#
-#
-# @app.errorhandler(503)
-# def service_not_found(e):
-#     return render_template('503.html'), 503
-#
-#
-# @app.errorhandler(500)
-# def internal_server_error(e):
-#     return render_template('503.html'), 500
-#
-#
-# @app.errorhandler(Exception)
-# def all_exception_handler(e):
-#     app.logger.exception(e)
-#     return render_template('503.html')
+@app.errorhandler(404)
+def page_not_found(e):
+    lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(503)
+def service_not_found(e):
+    return render_template('503.html'), 503
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('503.html'), 500
+
+
+@app.errorhandler(Exception)
+def all_exception_handler(e):
+    app.logger.exception(e)
+    return render_template('503.html')
