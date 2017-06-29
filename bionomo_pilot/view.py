@@ -584,8 +584,8 @@ def service_not_found(e):
 def internal_server_error(e):
     return render_template('503.html'), 500
 
-
-@app.errorhandler(Exception)
-def all_exception_handler(e):
-    app.logger.exception(e)
-    return render_template('503.html')
+#
+# @app.errorhandler(Exception)
+# def all_exception_handler(e):
+#     app.logger.exception(e)
+#     return render_template('503.html')
