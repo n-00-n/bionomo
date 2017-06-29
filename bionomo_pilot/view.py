@@ -44,7 +44,6 @@ def index():
 @app.route('/async/scientific_name/')
 @app.route('/async/scientific_name/<scientific_name>/<lang>')
 def get_scientific_name(scientific_name=None, lang=None):
-    print scientific_name
     if not scientific_name:
         return jsonify([])
 
