@@ -160,3 +160,39 @@ Traceback (most recent call last):
   File "/home/silvino/python/dev/bionomo_pilot/bionomo_pilot/view.py", line 40, in index
     raise Exception()
 Exception
+
+Traceback (most recent call last):
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/python/dev/bionomo_pilot/bionomo_pilot/view.py", line 39, in index
+    raise Exception()
+Exception
+
+Traceback (most recent call last):
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/python/dev/bionomo_pilot/bionomo_pilot/view.py", line 39, in index
+    raise Exception()
+Exception
+
+Traceback (most recent call last):
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/python/dev/bionomo_pilot/bionomo_pilot/view.py", line 39, in index
+    raise Exception()
+Exception
+
+Traceback (most recent call last):
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/python/dev/bionomo_pilot/bionomo_pilot/view.py", line 39, in index
+    raise Exception()
+Exception

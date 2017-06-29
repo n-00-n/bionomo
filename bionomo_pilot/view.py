@@ -36,6 +36,7 @@ _multimedia_endpoint = app.config['MULTIMEDIA_ENDPOINT']
 @app.route('/<lang_code>')
 @app.route('/<lang_code>/')
 def index():
+    # raise Exception()
     form = MainSearch(request.form)
     return render_template('landing_page.html', _fields=b_c, form=form)
 
@@ -456,7 +457,9 @@ def get_locale():
         if lang_block in app.config['SUPPORTED_LANGUAGES_PATH']:
             _default_locale = lang_block[1:3]
 
-    return g.get('lang_code', _default_locale)
+    _lang_code = g.get('lang_code', _default_locale)
+    _lang_code = _lang_code if _lang_code in app.config['SUPPORTED_LANGUAGES'].keys() else _default_locale
+    return _lang_code
     # return request.accept_languages.best_match(app.config['SUPPORTED_LANGUAGES'].keys())
 
 
@@ -536,6 +539,10 @@ def inject_selected_locale():
 
     lang_code = g.get('lang_code', _default_locale)
     lang_code = lang_code if lang_code else _default_locale
+    #validate one more time the lang_code... ufff
+
+    lang_code = lang_code if lang_code in app.config['SUPPORTED_LANGUAGES'].keys() else _default_locale
+
     return dict(selected_locale=lang_code)
 
 
