@@ -1,1 +1,1 @@
-web: gunicorn manage:app --log-file -
+web: gunicorn -t 150 manage:app --log-file -
