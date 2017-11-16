@@ -351,6 +351,9 @@ msgstr "Província"
 msgid "Location (desc)"
 msgstr "Localização (desc)"
 
+msgid "Data de observacao"
+msgstr "Data de observação"
+
 #: bionomo_pilot/templates/search_results.html:109
 msgid "Location (Lat; Long)"
 msgstr "Localização (Lat; Long)"

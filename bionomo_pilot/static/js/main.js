@@ -177,6 +177,20 @@ function main() {
                 return map;
             }
         }
+
+        $("#result-list .list-item").each(function(index){
+            var link = $(this).find(".item .classification_tree_lnk");
+            var title = $(this).find(".title").html();
+            var classification_tree = $(this).find(".classification-tree").html();
+            $(this).find(".clas_tree").html('');
+
+            $(link).flyout({
+                content: classification_tree,
+                title: title,
+                html: true
+            });
+        });
+
     }());
 }
 main();

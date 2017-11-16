@@ -113,7 +113,22 @@ class Collection(db.Model):
             (gettext('header.provider'), self.provider.full_name if self.provider.full_name else ''),
             (gettext('header.last_date'), self.last_date.strftime(c.general_date_format) if self.last_date else ''),
         ])
+    @hybrid_property
+    def taxonomy_dict(self):
+        _dict = None
 
+        if self.taxonomy:
+            _dict = OrderedDict()
+            input_parts = self.taxonomy.split('[')
+            input_parts = [input_part for input_part in input_parts if len(input_part) > 1]
+
+            for part in input_parts:
+                inner_parts = part.split(']')
+                key = inner_parts[0]
+                value = inner_parts[1][2:]
+                _dict[key] = value
+
+        return _dict
 
 class Multimedia(db.Model):
     id = Column(Integer, primary_key=True)

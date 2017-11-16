@@ -173,6 +173,7 @@
                                                         <h4 class="highlight">
                                                             <a href="#">{{ collection.full_scientific_name }}</a>
                                                         </h4>
+                                                        <h5 class="target" style="display: none">test</h5>
                                                         <div class="collection-details">
                                                             <div class="detail">
                                                                 <span class="label highlight">{{ _('Genus') }}:</span>
@@ -183,8 +184,14 @@
                                                                 <span class="value">{{ collection.province if collection.province else '--' }}</span>
                                                             </div>
                                                             <div class="detail">
-                                                                <span class="label highlight">{{ _('Location (desc)') }}:</span>
-                                                                <span class="value">{{ collection.location if collection.location else '--' }}</span>
+                                                                <span class="label highlight">{{ _('Data de observacao') }}:</span>
+                                                                <span class="value">{{ collection.last_date if collection.last_date else '--' }}</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                                <a href="#" class="classification_tree_lnk">
+                                                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                                                    {{ _('header.taxonomy') }}
+                                                                </a>
                                                             </div>
                                                             <div class="detail">
                                                                 <span class="label highlight">{{ _('Location (Lat; Long)') }}:</span>
@@ -208,6 +215,21 @@
                                                     <div class="clear-both"></div>
                                                 </div>
                                                 <div class="clear-both"></div>
+                                                <div class="clas_tree" style="display: none">
+                                                    <span class="title">{{ _('header.taxonomy') }}</span>
+                                                    <div class="classification-tree">
+                                                    {% if collection.taxonomy_dict %}
+                                                        {% for k, v in collection.taxonomy_dict.items() %}
+                                                            <div>
+                                                                <span><code>-></code></span>
+                                                                <span class="highlight">{{ k }}:</span>
+                                                                <span class="text">{{ v }}</span>
+                                                            </div>
+
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                    </div>
+                                                </div>
                                             </div>
                                             {% endfor %}
                                         </div>

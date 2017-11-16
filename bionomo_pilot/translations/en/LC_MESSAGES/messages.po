@@ -233,8 +233,8 @@ msgid ""
 "Versão Piloto da rede de biodiversidades de Moçambique: um portal para "
 "acesso a informação de biodiversidades."
 msgstr ""
-"Pilot Version of the biodiversity network of Mozambique: a portal for"
-"Access to biodiversity information."
+"Pilot Version of the biodiversity network of Mozambique: a portal for "
+"access to biodiversity information."
 
 #: bionomo_pilot/templates/base.html:95
 msgid "Procura avançada"
@@ -361,6 +361,9 @@ msgstr "Província"
 #: bionomo_pilot/templates/search_results.html:105
 msgid "Location (desc)"
 msgstr "Location (desc)"
+
+msgid "Data de observacao"
+msgstr "Observation date"
 
 #: bionomo_pilot/templates/search_results.html:109
 msgid "Location (Lat; Long)"

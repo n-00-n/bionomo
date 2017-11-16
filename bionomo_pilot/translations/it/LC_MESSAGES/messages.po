@@ -234,7 +234,7 @@ msgid ""
 "acesso a informação de biodiversidades."
 msgstr ""
 "Versione della rete di biodiversità del Mozambico: un portale "
-"per informazioni sulla biodiversità"
+"per informazioni sulla biodiversità."
 
 #: bionomo_pilot/templates/base.html:95
 msgid "Procura avançada"
@@ -362,6 +362,9 @@ msgstr "Provincia"
 #: bionomo_pilot/templates/search_results.html:105
 msgid "Location (desc)"
 msgstr "Posizione (disc)"
+
+msgid "Data de observacao"
+msgstr "Data di osservazione"
 
 #: bionomo_pilot/templates/search_results.html:109
 msgid "Location (Lat; Long)"
