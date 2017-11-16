@@ -50,4 +50,4 @@ config_by_name = {
     'prod': ProductionConfig,
 }
 
-env = 'dev'
+env = 'prod'
