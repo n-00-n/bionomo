@@ -1485,18 +1485,19 @@ a#ads-link.active,
     font-weight: 700;
 }
 
+.classification_tree_lnk {
+    padding: 2px;
+}
+
 .classification_tree_lnk,
-classification_tree_lnk:visited,
-classification_tree_lnk:link
-{
+.classification_tree_lnk:visited,
+.classification_tree_lnk:link {
     color: #222;
 }
 
-
-classification_tree_lnk:active {
+.classification_tree_lnk:active {
     color: #333;
 }
-
 
 .swlFlyout_content {
     font-family: "Open Sans", Helvetica Neue, Arial;

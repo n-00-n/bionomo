@@ -187,7 +187,12 @@ function main() {
             $(link).flyout({
                 content: classification_tree,
                 title: title,
-                html: true
+                html: true,
+                trigger: 'manual'
+            }).mouseover(function() {
+                $(this).flyout('show');
+            }).mouseout(function() {
+                $(this).flyout('hide');
             });
         });
 
