@@ -1,7 +1,5 @@
 function main() {
     (function(){
-        // alert('Hello! My turn it seems ;)');
-        //start with the link on the search_form
         if($('#ads-form-wapper .field-error').length == 0 && $('#ads-form-wapper .field-info').length == 0){
             $("#ads-form-wapper").addClass("hidden");
         }
@@ -12,7 +10,6 @@ function main() {
             $("#ads-form-wapper").toggleClass("hidden");
         });
 
-        //now for the languages
         $("#languages > div.hide-text a").hover(
             function(){
                 $(this).parent().removeClass("hide-text");
@@ -29,7 +26,6 @@ function main() {
         }
 
         if ( typeof $.typeahead == 'function' ) {
-            //autocomplete
             $.typeahead({
                 input: '.main-search-input',
                 minLength: 0,
@@ -75,9 +71,6 @@ function main() {
             setTimeout(function(){$('.main-search-input').focus();}, 10);
         }
 
-
-
-        //about
         $("#the_coder_content").slideUp( "fast", function() {});
         $(".developer-name").hover(
             function(){
@@ -112,7 +105,6 @@ function main() {
 
         });
 
-        //now for the links on the result page
         $("#result-options .links-wrapper .links .map").removeClass("hidden");
         $("#result-options .links-wrapper .links .map").click(function(event){
             event.preventDefault();

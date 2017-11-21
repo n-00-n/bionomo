@@ -24,7 +24,6 @@ class Config(object):
 class DevelopmentConfig(Config):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = '2000'
-    # SQLALCHEMY_DATABASE_URI = 'mysql://ct5zpqnonuj4yzxt:oe4j63qqgbraembs@d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ihnk2l2rtodwc0un'
     SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/bionomo_dev'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     DEBUG = False
@@ -41,8 +40,8 @@ class ProductionConfig(Config):
     SERVER_HOST = '127.0.0.1'
     SERVER_PORT = '2222'
     SQLALCHEMY_DATABASE_URI = 'mysql://cagy8s69mz3xdj2x:d05065yh5lpry0kb@a7e4sgso2kxq2hsi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/primary_app_db'
-    # SQLALCHEMY_DATABASE_URI = 'mysql://ct5zpqnonuj4yzxt:oe4j63qqgbraembs@d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ihnk2l2rtodwc0un'  #old db
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
 config_by_name = {
     'dev': DevelopmentConfig,
