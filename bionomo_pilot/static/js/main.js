@@ -134,9 +134,6 @@ function main() {
             });
         }
 
-        $("#maps").addClass("hide-map");
-        $("#maps").addClass("map-hidden");
-
         function myMap() {
             if (document.getElementById("maps") !=  null) {
 

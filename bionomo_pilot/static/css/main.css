@@ -65,9 +65,9 @@ body {
 body input,
 body select  {
     background: white;
-    outline: none; 
-    color: #333; 
-    padding: 6px 0 5px 8px; 
+    outline: none;
+    color: #333;
+    padding: 6px 0 5px 8px;
     border-width: 0;
     width: 90%;
 }
@@ -76,7 +76,7 @@ body select  {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    position: relative;    
+    position: relative;
 }
 .wrapper {
     width: 90%;
@@ -84,18 +84,18 @@ body select  {
 }
 
 #search-bar{
-    padding-top: 35px; 
-    padding-bottom: 18px; 
-    margin: 0 auto; 
-    width: 80%; 
+    padding-top: 35px;
+    padding-bottom: 18px;
+    margin: 0 auto;
+    width: 80%;
     text-align: center
 }
 
 #search-bar input {
     background: white;
-    outline: none; 
-    color: #333; 
-    width: 90%; 
+    outline: none;
+    color: #333;
+    width: 90%;
     /*padding: 23px 0 21px 15px;*/
     padding: 15px 0 15px 20px;
     border-width: 0
@@ -120,8 +120,8 @@ body select  {
 }
 
 .header-container {
-    background-color: #4a9df7; 
-    padding-bottom: 30px; 
+    background-color: #4a9df7;
+    padding-bottom: 30px;
     width: 100%;
 }
 
@@ -130,9 +130,9 @@ body select  {
 }
 
 #languages {
-    position: absolute; 
-    top: 60px; 
-    right: -80px; 
+    position: absolute;
+    top: 60px;
+    right: -80px;
     width: 200px;
 }
 /* ==============
@@ -500,13 +500,7 @@ a#ads-link.active,
 
 #maps {
     background: #ccc;
-    height: 450px;
     overflow: hidden;
-
-    /*-webkit-transition: height 0.3s;*/
-    /*-moz-transition: height 0.3s;*/
-    /*-o-transition: height 0.3s;*/
-    /*transition: height 0.3s;*/
 }
 
 #maps.map-hidden{}
@@ -1111,14 +1105,14 @@ a#ads-link.active,
     }
 
     #search-bar{
-        width: 600px; 
+        width: 600px;
     }
 
     #featured-text {
         font-size: 23px;
         padding-top: 50px;
     }
-    
+
     #ads-form-wapper {
         width: 550px;
     }
@@ -1181,14 +1175,14 @@ a#ads-link.active,
     }
 
     #result-list .list .description {
-        width: 82%; 
+        width: 82%;
         float: right;
     }
 
     #result-list .list .item {
         float: left;
         width: 55%;
-    } 
+    }
 
     #result-list .list .provider {
         float: right;
@@ -1225,7 +1219,7 @@ a#ads-link.active,
         width: 45%;
         float: left;
     }
-    
+
     .footer-container .project,
     .footer-container .developer {
         display: block;
@@ -1254,7 +1248,7 @@ a#ads-link.active,
     }
 
     #search-bar{
-        width: 650px; 
+        width: 650px;
     }
 
     #content .about-initiative .initiative {
@@ -1315,8 +1309,8 @@ a#ads-link.active,
         float: left;
         margin-left: 10px;
     }
-    
-    
+
+
     .footer-container .developer {
         display: block;
         width: 16%;
