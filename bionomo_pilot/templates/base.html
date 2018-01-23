@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.flyout.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
 
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
         <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
         <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
@@ -115,7 +115,7 @@
                         <div>
                             <a id="ads-link" href="#">{{ _('Procura avançada') }}</a>
                         </div>
-                        <div id="ads-form-wapper">
+                        <div id="ads-form-wapper" class="hidden">
                             {% with info_messages = get_flashed_messages(category_filter=["info-advanced"]) %}
                                 {% if info_messages %}
                                     {% for info_message in info_messages %}
@@ -341,9 +341,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="clear-both"></div>        
+                    <div class="clear-both"></div>
                 </footer>
-            </div>            
+            </div>
         </div>
         <div style="display: none">
             <span id="msg_no_collections">{{ _('não foram encontradas coleções para a procurar: ') }}</span>
