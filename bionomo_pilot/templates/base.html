@@ -115,21 +115,23 @@
                         <div>
                             <a id="ads-link" href="#">{{ _('Procura avançada') }}</a>
                         </div>
-                        <div id="ads-form-wapper" class="hidden">
-                            {% with info_messages = get_flashed_messages(category_filter=["info-advanced"]) %}
-                                {% if info_messages %}
-                                    {% for info_message in info_messages %}
-                                        <div class="field-info">{{ info_message }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endwith %}
-                            {% with main_errors = get_flashed_messages(category_filter=["error-advanced"]) %}
-                                {% if main_errors %}
-                                    {% for main_error in main_errors %}
-                                        <div class="field-error">{{ main_error }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endwith %}
+
+                        {% set info_messages = get_flashed_messages(category_filter=["info-advanced"]) %}
+                        {% set main_errors = get_flashed_messages(category_filter=["error-advanced"]) %}
+
+                        <div id="ads-form-wapper" class="{{ 'hidden' if not (info_messages or main_errors) }}">
+
+                            {% if info_messages %}
+                                {% for info_message in info_messages %}
+                                    <div class="field-info">{{ info_message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if main_errors %}
+                                {% for main_error in main_errors %}
+                                    <div class="field-error">{{ main_error }}</div>
+                                {% endfor %}
+                            {% endif %}
+
                             <form action="{{ url_for('view_results') }}" method="GET" id="advanced_form">
                                 {{ forms['advanced'].flag }}
                                 <div class="field">
