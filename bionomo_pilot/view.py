@@ -568,6 +568,11 @@ def inject_forms():
     return dict(forms=forms)
 
 
+@app.context_processor
+def inject_datenow():
+    return dict(now=datetime.utcnow())
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     lang_code = g.get('lang_code', app.config['BABEL_DEFAULT_LOCALE'])
