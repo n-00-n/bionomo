@@ -403,7 +403,7 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
                                                                      None - for all other types of multimedia
     :return:
     """
-    # img_type
+    # this variable is to be used on validation of the parameters
     _serve_image = True
     multimedia_id = None
     multimedia_type = None

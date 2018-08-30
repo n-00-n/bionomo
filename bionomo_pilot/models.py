@@ -113,6 +113,7 @@ class Collection(db.Model):
             (gettext('header.provider'), self.provider.full_name if self.provider.full_name else ''),
             (gettext('header.last_date'), self.last_date.strftime(c.general_date_format) if self.last_date else ''),
         ])
+
     @hybrid_property
     def taxonomy_dict(self):
         _dict = None
@@ -130,6 +131,7 @@ class Collection(db.Model):
 
         return _dict
 
+
 class Multimedia(db.Model):
     id = Column(Integer, primary_key=True)
     short_name = Column(String(50))
@@ -145,3 +147,12 @@ class Multimedia(db.Model):
     # relationship with Provider. backref 'provider'
     provider_id = Column(Integer, db.ForeignKey('provider.id'))     # images are exclusive to provider (building, etc) when collection_id is null
     provider = db.relationship('Provider', back_populates='multimedia_list')
+
+
+def create_all():
+    db.create_all()
+    return True
+
+
+if __name__ == '__main__':
+    db.create_all()

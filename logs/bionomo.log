@@ -1,0 +1,23 @@
+No row was found for one()
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 48, in index
+    return render_template('landing_page.html', _fields=b_c, form=form)
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 764, in update_template_context
+    context.update(func())
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 509, in inject_portal_data
+    _data = service.get_portal_data(),
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 26, in get_portal_data
+    stakeholders = self.get_stacke_holders_images()
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 52, in get_stacke_holders_images
+    ('logo_url_uem', self.get_image('logo_uem', c.CODE_IMG_LOGO, height=80)),
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 41, in get_image
+    multimedia = Multimedia.query.filter(Multimedia.short_name == short_name, Multimedia.type == image_type).one()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2820, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+NoResultFound: No row was found for one()

@@ -115,9 +115,12 @@ class ABCDParser(object):
 
                 collection_item.add_attribute(attribute)
 
+                if name == 'SourceInstitutionID' and data_provider.org_abbrv is None:
+                    data_provider.org_abbrv = value
+
             abcd_model.add_collection_item(collection_item)
 
-            abcd_model.flag = max([int(collection_item.get_attribute(c.attrs[c.name_unit_id_numeric]['name']).values[0])
+            abcd_model.flag = max([int(collection_item.get_attribute(c.attrs[c.name_unit_id]['name']).values[0])
                                    for collection_item in abcd_model.collection_items])
 
         return abcd_model

@@ -24,7 +24,7 @@ class Config(object):
 class DevelopmentConfig(Config):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = '2000'
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@localhost/bionomo_dev'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@localhost/bionomo_pilot_dev' # change to 'bionomo_dev' for the data.
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     DEBUG = False
 
@@ -49,4 +49,4 @@ config_by_name = {
     'prod': ProductionConfig,
 }
 
-env = 'prod'
+env = 'dev'

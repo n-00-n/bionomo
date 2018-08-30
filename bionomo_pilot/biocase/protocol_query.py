@@ -22,7 +22,10 @@ urls = [
         # 'http://localhost/biocase/pywrapper.cgi?dsa=pafa_clone',
         # 'http://localhost/biocase/pywrapper.cgi?dsa=plants_biocase',
         # 'http://localhost/biocase/pywrapper.cgi?dsa=aifm2006_biocase',
-        'http://localhost/biocase/pywrapper.cgi?dsa=mhnm_biocase'
+        # 'http://localhost/biocase/pywrapper.cgi?dsa=mhnm_biocase',
+        'http://localhost/biocase/pywrapper.cgi?dsa=iip_fish_inhambane',
+        'http://localhost/biocase/pywrapper.cgi?dsa=iip_fish_niassa',
+        'http://localhost/biocase/pywrapper.cgi?dsa=mhn',
         ]
 
 

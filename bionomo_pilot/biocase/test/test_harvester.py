@@ -1,8 +1,13 @@
-from unittest import TestCase
+from flask_testing import TestCase
+# from unittest import TestCase
+from bionomo_pilot import *
 from bionomo_pilot.harvester.harvester import Harvester
 
 
 class TestHarvester(TestCase):
+    def create_app(self):
+        return create_app('dev')
+
     def test_load_top_10(self):
         harvester = Harvester()
         self.assertGreater(len(harvester.load_top_10()), 0, 'Top 10 has to have data.')

@@ -128,7 +128,7 @@ class Harvester:
         protocol_query = ProtocolQuery()
         #initialize the query
         attribute_dict = {
-            'path': c.full_path_unit_id_numeric,
+            'path': c.full_path_unit_id,
             'operation': c.query_conjuction_op_greather_than_tag,
             'value': '0'
         }
@@ -143,7 +143,7 @@ class Harvester:
                 while _abcd_model.has_more_items:
                     print 'found more items on the ABCDModel.'
                     _attribute_dict = {
-                        'path': c.full_path_unit_id_numeric,
+                        'path': c.full_path_unit_id,
                         'operation': c.query_conjuction_op_greather_than_tag,
                         'value': _abcd_model.flag
                     }
@@ -170,11 +170,15 @@ class Harvester:
         provider.longitude = None  # todo: implement this.
         provider.nr_collections = len(abcd_model.collection_items)
 
-        _provider_db = db.session.query(Provider).filter_by(abbreviation=provider.abbreviation).first()
+        _provider_db = db.session.query(Provider).filter(Provider.abbreviation == provider.abbreviation,
+                                                         Provider.name == provider.name).first()
 
         if not _provider_db and add_to_collection:
             raise Exception('Please call this method providing an already existing provider '
                             'or set add_to_collection=False. [{}]'.format(provider.abbreviation))
+        elif not _provider_db:
+            db.session.add(provider)
+            db.session.commit()
 
         if _provider_db:
             # just update the nr_collections
@@ -192,15 +196,15 @@ class Harvester:
         _to_subtract = 0
         for collection_item in abcd_model.collection_items:
 
-            _unit_id_numeric_item = collection_item.get_attribute(c.attrs[c.name_unit_id_numeric]['name'])
-            _unit_id_numeric = int(_unit_id_numeric_item.values[0]) if _unit_id_numeric_item.values[0].isdigit() else None
+            _unit_id_item = collection_item.get_attribute(c.attrs[c.name_unit_id]['name'])
+            _unit_id = int(_unit_id_item.values[0]) if _unit_id_item.values[0].isdigit() else None
             _collection_db = db.session.query(Collection).filter_by(
-                                            unit_id_numeric=_unit_id_numeric,
+                                            unit_id_numeric=_unit_id,
                                             provider_id=provider.id).first()
             if not _collection_db:
                 collection = Collection()
 
-                collection.unit_id_numeric = _unit_id_numeric
+                collection.unit_id_numeric = _unit_id
                 collection.unit_id = collection_item.get_attribute(c.attrs[c.name_unit_id]['name']).values[0]
 
                 collection.authorship = collection_item.get_attribute(c.attrs[c.name_authorship]['name']).values[0]

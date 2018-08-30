@@ -99,8 +99,8 @@ class Constants(object):
                                         '/{1}:TechnicalContacts/{1}:TechnicalContact/{1}:Email'
 
     abcd_path_org_representation_name = './{0}:content/{1}:DataSets/{1}:DataSet' \
-                                        '/{1}:Metadata/{1}:Owners/{1}:Owner' \
-                                        '/{1}:Organisation/{1}:Name/{1}:Representation/{1}:Text'
+                                        '/{1}:Metadata/{1}:Description/{1}:Representation' \
+                                        '/{1}:Title'
 
     abcd_path_org_representation_abbrv = './{0}:content/{1}:DataSets/{1}:DataSet' \
                                          '/{1}:Metadata/{1}:Owners/{1}:Owner' \
@@ -112,6 +112,8 @@ class Constants(object):
 
     abcd_path_unit = './{0}:content/{1}:DataSets/{1}:DataSet' \
                      '/{1}:Units/{1}:Unit'
+
+
     # path after the /Unit
     abcd_path_unit_institution_source_id = '{0}:SourceInstitutionID'
     abcd_path_unit_source_id = '{0}:SourceID'
@@ -125,6 +127,12 @@ class Constants(object):
     _count = 1
     name_content = '_'.join([_name_prefix, '%02d' % _count])
 
+
+    _count += 1
+    name_unit_source_institution_id = '_'.join([_name_prefix, '%02d' % _count])
+    full_path_unit_source_institution_id = '/DataSets/DataSet/Units/Unit' \
+                                 '/SourceInstitutionID'
+    abcd_path_unit_source_institution_id = '{}:SourceInstitutionID'
 
     _count += 1
     name_unit_id_numeric = '_'.join([_name_prefix, '%02d' % _count])
@@ -260,9 +268,9 @@ class Constants(object):
     name_last_date = '_'.join([_name_prefix, '%02d' % _count])
     name_last_date_start = name_last_date + '_01'
     name_last_date_end = name_last_date + '_02'
-    full_path_last_date = '/DataSets/DataSet/Units/Unit/Gathering/DateTime/ISODateTimeBegin'
+    full_path_last_date = '/DataSets/DataSet/Units/Unit/Gathering/DateTime/DateText'
     abcd_path_last_date = '{0}:Gathering/{0}:DateTime' \
-                          '/{0}:ISODateTimeEnd'
+                          '/{0}:DateText'
 
     _count += 1
     name_first_year = '_'.join([_name_prefix, '%02d' % _count])
@@ -287,24 +295,33 @@ class Constants(object):
     name_taxonomy = '_'.join([_name_prefix, '%02d' % _count])
     full_path_taxonomy = '/DataSets/DataSet/Units' \
                          '/Unit/Identifications/Identification' \
-                         '/Result/TaxonIdentified/ScientificName/NameAddendum'
+                         '/Result/TaxonIdentified/HigherTaxa/HigherTaxon/HigherTaxonName'
     abcd_path_taxonomy = '{0}:Identifications/{0}:Identification' \
-                           '/{0}:Result/{0}:TaxonIdentified/{0}:ScientificName' \
-                           '/{0}:NameAddendum'
+                           '/{0}:Result/{0}:TaxonIdentified/{0}:HigherTaxa/{0}:HigherTaxon' \
+                           '/{0}:HigherTaxonName'
 
     _count += 1
     name_identification_person = '_'.join([_name_prefix, '%02d' % _count])
     full_path_identification_person = '/DataSets/DataSet/Units/Unit/' \
-                                      'Identifications/Identification/' \
-                                      'Identifiers/Identifier/PersonName/FullName'
-    abcd_path_identification_person = '{0}:Identifications/{0}:Identification' \
-                                      '/{0}:Identifiers/{0}:Identifier' \
-                                      '/{0}:PersonName/{0}:FullName'
+                                      'Gathering/Agents/GatheringAgent/' \
+                                      'Person/FullName'
+    abcd_path_identification_person = '{0}:Gathering/{0}:Agents' \
+                                      '/{0}:GatheringAgent/{0}:Person' \
+                                      '/{0}:FullName'
 
     _count += 1
     name_provider = '_'.join([_name_prefix, '%02d' % _count])
 
+
+    # change this to change the current mapping.
     attrs = {
+        name_unit_source_institution_id: {
+            'full_path': full_path_unit_source_institution_id,
+            'relative_path': abcd_path_unit_source_institution_id,
+            'value': None,  # this should be a tuple or list, containing one or more values
+            'default_operation': None,  # todo: deprecate this. No longer needed since the filter is done on DB level.
+            'name': 'SourceInstitutionID'
+        },
         name_unit_id_numeric: {
             'full_path': full_path_unit_id_numeric,
             'relative_path': abcd_path_unit_id_numeric,
