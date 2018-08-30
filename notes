@@ -27,4 +27,10 @@ Pour ajouter un logo il faut juste:
         short_name: c'est un nom court donné: par exemple thumb_museu
 
 
---- changed
+--- to change
+ = on the BioNoMo_Service
+        -  provider stats
+            - group by provider.abbreviation and sum the colletcion count
+ = on Harvester
+        - test script and make sure each provider with different name gets its own record on the database
+ * test the harvester against the production database

@@ -245,7 +245,7 @@ class Harvester:
                     print 'failed to submit Collection(id, unit_id) = ({}, {})'.format(collection.id, collection.unit_id)
 
             else:
-                print 'Collection(id, unit_id_numeric, provider) = ({}, {}, {}) already exists on the DB.'\
+                print 'Collection(id, unit_id_numeric, provider) = ({}, {}, {}) already exists on the DB.\nUpdating it!'\
                         .format(_collection_db.id, _collection_db.unit_id_numeric, _collection_db.provider.abbreviation)
                 _to_subtract += 1
 
