@@ -397,7 +397,7 @@ def download_csv():
 def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
     """An endpoint for serving multimedia files.
 
-    :param base64_multimedia_id: the base64 encoded multimedia_id: -1 - for no media, multimedia_id - fro the id on DB
+    :param base64_multimedia_id: the base64 encoded multimedia_id: -1 - for no media, multimedia_id - for the id on DB
     :param base64_multimedia_type: the base64 encoded image_type code: 1 - thumbnail, 2 - medium, 3 - big
                                                                         4 - logo, 5 - flag
                                                                      None - for all other types of multimedia
@@ -444,7 +444,7 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
             if not multimedia:
                 return send_from_directory(_multimedia_dir, c.no_img_full_name)
 
-            _image_name = '_'.join([str(multimedia_type), str(multimedia_id), multimedia.full_name])
+            _image_name = multimedia.full_name
             _image_path = os.path.sep.join([_multimedia_dir, _image_name])
 
             if not os.path.exists(_image_path):

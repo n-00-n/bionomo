@@ -45,7 +45,20 @@ class BioNoMoService(object):
         return Multimedia.query.get(multimedia_id)
 
     def get_partner_stats(self):
-        return self.get_providers()
+        _providers = {}
+
+        for provider in self.get_providers():
+            if _providers.get(provider.abbreviation, False):
+                if provider.logo is not None:
+                    _p = _providers[provider.abbreviation]
+                    provider.nr_collections += _p.nr_collections
+                    _providers[provider.abbreviation] = provider
+                else:
+                    pass
+            else:
+                _providers[provider.abbreviation] = provider
+
+        return _providers.values()
 
     def get_stacke_holders_images(self):
         _images_list = [
@@ -53,8 +66,8 @@ class BioNoMoService(object):
             ('logo_url_sapienza', self.get_image('logo_unisapienzia', c.CODE_IMG_LOGO, height=70)),
             ('logo_url_museu', self.get_image('logo_museu', c.CODE_IMG_LOGO)),
             ('logo_url_iiam', self.get_image('logo_iiam', c.CODE_IMG_LOGO)),
-            ('logo_url_cbt', self.get_image('logo_cbt', c.CODE_IMG_LOGO)),
-            ('logo_url_uem_biology', self.get_image('logo_uem_biology', c.CODE_IMG_LOGO, height=70)),
+            ('logo_url_cbt', self.get_image('logo_cb', c.CODE_IMG_LOGO)),
+            ('logo_url_uem_biology', self.get_image('logo_dcb', c.CODE_IMG_LOGO, height=70)),
         ]
 
         return OrderedDict(_images_list)

@@ -792,6 +792,8 @@ a#ads-link.active,
 
 #top-colletions .top-collection .collection-list .collection {
     text-align: center;
+    display: block;
+    float: left;
 }
 
 #top-colletions .top-collection .collection-list .collection .img-holder {

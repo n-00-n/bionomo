@@ -1,5 +1,5 @@
 from datetime import datetime
-from bionomo_pilot.models import Provider, Collection
+from bionomo_pilot.models import Provider, Collection, Multimedia
 from ..biocase.protocol_query import ProtocolQuery
 from ..biocase.constants import Constants as c
 from bionomo_pilot import Components
@@ -77,7 +77,7 @@ class Harvester:
             provider.technical_contact_email = abcd_model.provider.contact_email
             provider.latitude = None    # todo: implement this.
             provider.longitude = None    # todo: implement this.
-            provider.nr_collections = len(abcd_model.collection_items)
+            provider.nr_collections = len(abcd_model.collection_items)  # todo: remove this, compute count once on the biocase_results.fetch_results()
 
             collection_list = []
             for collection_item in abcd_model.collection_items:
@@ -170,8 +170,7 @@ class Harvester:
         provider.longitude = None  # todo: implement this.
         provider.nr_collections = len(abcd_model.collection_items)
 
-        _provider_db = db.session.query(Provider).filter(Provider.abbreviation == provider.abbreviation,
-                                                         Provider.name == provider.name).first()
+        _provider_db = db.session.query(Provider).filter(Provider.name == provider.name).first()
 
         if not _provider_db and add_to_collection:
             raise Exception('Please call this method providing an already existing provider '
@@ -190,6 +189,13 @@ class Harvester:
         else:
             # save it to the DB
             db.session.add(provider)
+            db.session.commit()
+
+        # update the multimedia table
+        multimedia_list = db.session.query(Multimedia).filter(Multimedia.provider_abbrv == provider.abbreviation)
+        for _multimedia in multimedia_list:
+            _multimedia.provider = provider
+            db.session.add(_multimedia)
             db.session.commit()
 
         _submitted_count = 0
@@ -218,13 +224,24 @@ class Harvester:
                 collection.species = self.get_from_taxonomy(collection.taxonomy, '[Species]: ')
 
                 _province_str = collection_item.get_attribute(c.attrs[c.name_province]['name']).values[0]
-                collection.province = " ".join([part.lower().capitalize() for part in _province_str.split()])
+                collection.province = " ".join([part.lower().capitalize() for part in _province_str.split()]) if _province_str is not None else ''
 
                 _district_str = collection_item.get_attribute(c.attrs[c.name_district]['name']).values[0]
-                collection.district = " ".join([part.lower().capitalize() for part in _district_str.split()])
+                collection.district = " ".join([part.lower().capitalize() for part in _district_str.split()]) if _district_str is not None else ''
 
                 _date_str = collection_item.get_attribute(c.attrs[c.name_last_date]['name']).values[0]
-                collection.last_date = datetime.strptime(_date_str, c.date_format) if _date_str else None
+
+                if _date_str is not None:
+                    if len(_date_str) == 4:
+                        _date_str += '-01-01'
+                    elif len(_date_str) == 7:
+                        _date_str += '-01'
+
+                try:
+                    collection.last_date = datetime.strptime(_date_str, c.date_format) if _date_str else None
+                except ValueError:
+                    print 'problematic data found:' + _date_str
+
                 collection.last_year = collection.last_year .year if collection.last_year else None
 
                 _latitude_str = collection_item.get_attribute(c.attrs[c.name_latitude_decimal]['name']).values[0]

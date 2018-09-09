@@ -34,3 +34,16 @@ Pour ajouter un logo il faut juste:
  = on Harvester
         - test script and make sure each provider with different name gets its own record on the database
  * test the harvester against the production database
+        - get production database
+        - run harvest against a copy of the production database
+  * add a block of code to update the provider multimedia references
+
+
+  ==
+  =
+= todo:
+ => run the portal without changing any settings
+    = and systematically apply the changes on the multimedia for it to change
+ => run the harvest again, against the production database and make sure all the multimedia is set right
+        = check whether the multimedia for the provider.abbreviation exists on the database
+            - if not use the default settings (add a dict on the constantsx)

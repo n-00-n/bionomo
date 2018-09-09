@@ -146,6 +146,7 @@ class Multimedia(db.Model):
                                                  foreign_keys="Collection.thumbnail_id")
     # relationship with Provider. backref 'provider'
     provider_id = Column(Integer, db.ForeignKey('provider.id'))     # images are exclusive to provider (building, etc) when collection_id is null
+    provider_abbrv = Column(String(10))     # images are exclusive to provider (building, etc) when collection_id is null
     provider = db.relationship('Provider', back_populates='multimedia_list')
 
 
