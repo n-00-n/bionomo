@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="n_iiam@localhost" uuid="2f4fdde8-79db-4504-a7ef-189a25357ed2">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>silvino</user-name>
+      <introspection-schemas>n_iiam:public</introspection-schemas>
+    </data-source>
+    <data-source name="n_mhn@localhost" uuid="4f3f72da-b50e-4e83-ae0e-365fd04a959c">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>silvino</user-name>
+      <introspection-schemas>n_mhn:public</introspection-schemas>
+    </data-source>
+    <data-source name="bionomo_pilot_dev@localhost" uuid="85de79cb-0cf8-4e83-9dcb-b49e87fc5272">
+      <database-info product="MySQL" version="5.5.5-10.1.35-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:bionomo_pilot_dev</introspection-schemas>
+    </data-source>
+    <data-source name="n_iip_fish_inhambane@localhost" uuid="b0a51a27-d652-4309-ab27-782e0f3573ac">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>silvino</user-name>
+      <introspection-schemas>n_iip_fish_inhambane:public</introspection-schemas>
+    </data-source>
+    <data-source name="n_iip_fish_niassa@localhost" uuid="d3eace66-3e29-4a54-8a36-e24dab3cec41">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>silvino</user-name>
+      <introspection-schemas>n_iip_fish_niassa:public</introspection-schemas>
+    </data-source>
+    <data-source name="aifm@localhost" uuid="34ac0501-0f56-4663-a84c-744d30fb88cf">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>silvino</user-name>
+      <introspection-schemas>aifm:public</introspection-schemas>
+    </data-source>
+  </component>
+</project>
