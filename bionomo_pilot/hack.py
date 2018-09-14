@@ -136,7 +136,9 @@ class SelectWidget(Select):
             data = (escape(unicode(value)), u'\n'.join(children))
         else:
             coerce_func, data = mixed
-            selected = coerce_func(value) == data
+            # value = value.decode('utf-8')
+            func_result = unicode(value) if isinstance(value, basestring) else coerce_func(value)
+            selected = func_result == data
 
             options = {'value': value}
 

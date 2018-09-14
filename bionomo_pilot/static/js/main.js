@@ -149,20 +149,23 @@ function main() {
 
                 map = new google.maps.Map(document.getElementById("maps"), mapProp);
 
-                $("#maps1 .coordinates").each(function (index, value) {
+                var markers = $("#maps1 .coordinates").map(function(coordinate, index){
                     _lat = parseFloat($(this).find(".latitude").text());
                     _long = parseFloat($(this).find(".longitude").text());
-                    marker = new google.maps.Marker({
+                    return new google.maps.Marker({
                         map: map,
                         icon: {
-                            // path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
-                          path: google.maps.SymbolPath.CIRCLE,
+                            path: google.maps.SymbolPath.CIRCLE,
                             scale: 3,
                             strokeColor: '#670f44'
                         },
                         position: {lat: _lat, lng: _long}
                     });
                 });
+
+                var markerCluster = new MarkerClusterer(map, markers,
+                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
                 return map;
             }
         }

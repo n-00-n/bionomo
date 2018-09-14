@@ -363,10 +363,13 @@
         <script src="{{url_for('static', filename='js/vendor/select2.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/vendor/jquery.flyout.js')}}"></script>
 
-        <script src="{{url_for('static', filename='js/main.js')}}"></script>
+        <script async defer src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"> </script>
+
         <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsrSnsTluYRWFEAsCdmn5zNGsQczU-6zE&callback=myMap">
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZhk80OCtaQt9n6NWgSd4Aq9Qf91KzY4o&callback=myMap">
         </script>
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

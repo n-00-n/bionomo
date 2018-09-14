@@ -98,6 +98,7 @@ class Collection(db.Model):
 
     @hybrid_property
     def as_dict(self):
+        else_ = self.provider.full_name if self.provider.full_name else ''
         return OrderedDict([
             (gettext('header.unit_id'), self.unit_id if self.unit_id else ''),
             (gettext('header.scientific_name'), self.full_scientific_name if self.full_scientific_name else ''),
@@ -110,8 +111,8 @@ class Collection(db.Model):
             (gettext('header.district'), self.district if self.district else ''),
             (gettext('header.longitude'), self.longitude if self.longitude else ''),
             (gettext('header.latitude'), self.latitude if self.latitude else ''),
-            (gettext('header.provider'), self.provider.full_name if self.provider.full_name else ''),
-            (gettext('header.last_date'), self.last_date.strftime(c.general_date_format) if self.last_date else ''),
+            (gettext('header.provider'), else_),
+            (gettext('header.last_date'), '{0.day:{1}}/{0.month:{1}}/{0.year}'.format(self.last_date, '02') if self.last_date else ''),
         ])
 
     @hybrid_property
