@@ -55,5 +55,25 @@
       <user-name>silvino</user-name>
       <introspection-schemas>aifm:public</introspection-schemas>
     </data-source>
+    <data-source name="b_t@localhost" uuid="b7067e67-6c16-46ee-919b-8999dd9607bc">
+      <database-info product="MySQL" version="5.5.5-10.1.35-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:b_t</introspection-schemas>
+    </data-source>
+    <data-source name="tst_b@localhost" uuid="9d0eb0be-d733-4980-9af0-3435cb870917">
+      <database-info product="MySQL" version="5.5.5-10.1.35-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:tst_b</introspection-schemas>
+    </data-source>
   </component>
 </project>
