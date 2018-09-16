@@ -66,6 +66,7 @@ class BioNoMoService(object):
             ('logo_url_sapienza', self.get_image('logo_unisapienzia', c.CODE_IMG_LOGO, height=70)),
             ('logo_url_museu', self.get_image('logo_museu', c.CODE_IMG_LOGO)),
             ('logo_url_iiam', self.get_image('logo_iiam', c.CODE_IMG_LOGO)),
+            ('logo_url_iiam', self.get_image('logo_iip', c.CODE_IMG_LOGO)),
             ('logo_url_cbt', self.get_image('logo_cb', c.CODE_IMG_LOGO)),
             ('logo_url_uem_biology', self.get_image('logo_dcb', c.CODE_IMG_LOGO, height=70)),
         ]
