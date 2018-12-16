@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5caa11a2-a837-4468-b6e3-0244937f1ef5" name="Default" comment="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bionomo_pilot/static/images/logos/eol_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bionomo_pilot/static/images/logos/full_logo_white.svg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.mo" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.mo" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.mo" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/pt/LC_MESSAGES/messages.mo" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/pt/LC_MESSAGES/messages.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/silvino.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/silvino.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/config.py" afterPath="$PROJECT_DIR$/bionomo_pilot/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/constants.py" afterPath="$PROJECT_DIR$/bionomo_pilot/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/forms.py" afterPath="$PROJECT_DIR$/bionomo_pilot/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/message.pot" afterPath="$PROJECT_DIR$/bionomo_pilot/message.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" afterPath="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/static/css/main.css" afterPath="$PROJECT_DIR$/bionomo_pilot/static/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/static/js/main.js" afterPath="$PROJECT_DIR$/bionomo_pilot/static/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/templates/base.html" afterPath="$PROJECT_DIR$/bionomo_pilot/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/templates/search_results.html" afterPath="$PROJECT_DIR$/bionomo_pilot/templates/search_results.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.po" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.po" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/view.py" afterPath="$PROJECT_DIR$/bionomo_pilot/view.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/bionomo.log" afterPath="$PROJECT_DIR$/logs/bionomo.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes" afterPath="$PROJECT_DIR$/notes" />
     </list>
     <ignored path="bionomo_pilot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +42,7 @@
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittest_TestHarvester_test_load_and_parse.coverage" NAME="Unittest TestHarvester.test_load_and_parse Coverage Results" MODIFIED="1495309287514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittests_in_test_fetch.coverage" NAME="Unittests in test_fetch Coverage Results" MODIFIED="1495225752130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittest_TestQuery_test_conjuction_query.coverage" NAME="Unittest TestQuery.test_conjuction_query Coverage Results" MODIFIED="1494793419320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
-    <SUITE FILE_PATH="coverage/bionomo$run_bionomo_pilot.coverage" NAME="run_bionomo_pilot Coverage Results" MODIFIED="1544927661339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bionomo$run_bionomo_pilot.coverage" NAME="run_bionomo_pilot Coverage Results" MODIFIED="1544930234142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -186,8 +164,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/static/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -841,7 +819,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537104348633</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder.">
+      <created>1544930017675</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544930017675</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -878,10 +863,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41145834" sideWeight="0.5051546" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42320085" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42320085" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4113856" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6208378" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -923,7 +909,8 @@
     <MESSAGE value="Changed the files structure for multimedia.&#10;The multimedia view script" />
     <MESSAGE value="TO_TEST:&#10;changed _submit_to_abcd_model_to_DB, added a block of code to allow insertion of providers with different names: &#10;&#10;ex: &#10; - IIP - IIP FISH NIASSA&#10; - IIP - IIP FISH INHAMBANE" />
     <MESSAGE value="changed production database name to 'bionomo'" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed production database name to 'bionomo'" />
+    <MESSAGE value="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1520,8 +1507,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
