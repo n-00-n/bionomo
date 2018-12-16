@@ -29,7 +29,7 @@ class Constants:
     date_format = '%d/%m/%Y'
     general_date_format = '%Y/%m/%d'
     file_date_format = '%Y%m%d%H%M%S'
-    gmaps_markers_limit = 500
+    gmaps_markers_limit = 5000
 
     DEFAULT_LOCALE = 'pt'
     LOCALE_DICT = {'en': 'English', 'pt': 'Português', 'fr': 'Français', 'it': 'Italiano'}

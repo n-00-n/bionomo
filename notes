@@ -1,3 +1,15 @@
+fix total amount.
+= fix heatmap - add library to local folder or search for online cdn repositories.
+= performance loading all markers, more than 5000 points
+= fix pagination
++ add kml format download
++ remove latitude/longitude
++ remove observation_date
++ add link for EOL   = https://eol.org/search_results?utf8=✓&q={}
++ add link for GBIF  = https://www.gbif.org/search?q={}
+----
+before deploy, download the current version of the portal to an history folder.
+
 actualiser d'abord la table multimedia
 actualiser en suite le dictionaire default_imgs = {}
 

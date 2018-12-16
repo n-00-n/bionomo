@@ -36,6 +36,10 @@ def csv_url():
     return url_for('download_csv', **request.args)
 
 
+def kml_url():
+    return url_for('download_kml', **request.args)
+
+
 def redirect_url():
     return request.args.get('next') or \
            request.referrer or \
@@ -328,4 +332,3 @@ class FilterSearch(AdvancedSearch):
 
         self._unbound_fields = _new_unbound_fields
         super(AdvancedSearch, self).__init__(*args, **kwargs)
-

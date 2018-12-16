@@ -339,6 +339,10 @@ msgstr "Voir sur la carte"
 msgid "Baixar .CSV"
 msgstr "Téléchargez .CSV"
 
+#: bionomo_pilot/templates/search_results.html:15
+msgid "Baixar .KML"
+msgstr "Téléchargez .KML"
+
 #: bionomo_pilot/templates/search_results.html:29
 msgid "Instituição"
 msgstr "Institution"

@@ -70,6 +70,10 @@ body select  {
     padding: 6px 0 5px 8px;
     border-width: 0;
     width: 90%;
+
+}
+#logo a {
+    outline: none;
 }
 
 .outter-wapper {
@@ -978,6 +982,10 @@ a#ads-link.active,
     line-height: 1.5em;
 }
 
+.links a {
+    outline: none;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -1025,14 +1033,16 @@ a#ads-link.active,
     INTERMEDIATE: Menu
    ==================== */
 
-   body{
-    overflow-x: hidden;
+   body {
+        overflow-x: hidden;
    }
+
     .header-container nav {
         width: 65%;
         float: right;
 
     }
+
     .header-container nav ul {
         float: right;
     }

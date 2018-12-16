@@ -131,9 +131,12 @@ class BioNoMoService(object):
                                                     Collection.longitude >= start_longitude if start_longitude else True,
                                                     Collection.longitude <= end_longitude if end_longitude else True,
                                                     Collection.last_date >= start_date if start_date else True,
-                                                    Collection.last_date <= end_date if end_date else True)
+                                                    Collection.last_date <= end_date if end_date else True)\
 
-        collection_list = collection_filter.paginate(page=(page if page else 1),
+        collection_count = collection_filter.count()
+
+        collection_filter_view = collection_filter.group_by(Collection.full_scientific_name)
+        collection_list = collection_filter_view.paginate(page=(page if page else 1),
                                                      per_page=(items_per_page if items_per_page else c.collections_per_page),
                                                      error_out=False)
 
@@ -166,6 +169,7 @@ class BioNoMoService(object):
             'collections_coordinates': collections_coordinates,
             'data_providers': providers,
             'provinces': provinces,
+            'total': collection_count,
             'simple_form_values': {
                 b_c.name_full_scientific_name_string: scientific_name
             } if is_simple_search else None,
@@ -217,23 +221,59 @@ class BioNoMoService(object):
             return None
 
         output = io.BytesIO()
-        with open('test.csv', 'w') as file:
-            w = csv.DictWriter(file, fieldnames=collection_filter[0].as_dict.keys())
-            w.writeheader()
-            w.writerows([collection.as_dict for collection in collection_filter])
+        # with open('test.csv', 'w') as file:
+        #     w = csv.DictWriter(file, fieldnames=collection_filter[0].as_dict.keys())
+        #     w.writeheader()
+        #     w.writerows([collection.as_dict for collection in collection_filter])
 
         w = csv.DictWriter(output, fieldnames=collection_filter[0].as_dict.keys())
         w.writeheader()
         w.writerows([collection.as_dict for collection in collection_filter])
 
-        # output.close()
+        return output
+
+    def get_kml_for_fields(self, scientific_name=None, province_list=None, provider_id_list=None, latitude=None,
+                                  longitude=None, start_date=None, end_date=None, page=None, items_per_page=None,
+                                  start_latitude=None, end_latitude=None, start_longitude=None, end_longitude=None, is_simple_search=False):
+
+        collection_filter = Collection.query.filter(Collection.full_scientific_name.like('%' + scientific_name + '%'),
+                                                    Collection.province.in_(province_list) if province_list else True,
+                                                    Collection.provider_id.in_(provider_id_list) if provider_id_list else True,
+                                                    Collection.latitude >= start_latitude if start_latitude else True,
+                                                    Collection.latitude <= end_latitude if end_latitude else True,
+                                                    Collection.longitude >= start_longitude if start_longitude else True,
+                                                    Collection.longitude <= end_longitude if end_longitude else True,
+                                                    Collection.last_date >= start_date if start_date else True,
+                                                    Collection.last_date <= end_date if end_date else True)
+
+        if collection_filter.count() == 0:
+            return None
+
+        output = io.BytesIO()
+
+        from lxml import etree as et
+
+        root_el = et.Element("kml", xmlns="http://www.opengis.net/kml/2.2")
+
+        document = et.SubElement(root_el, "Document", id="root_doc")
+        folder = et.SubElement(document, "Folder")
+        et.SubElement(folder, "name").text = "BioNoMo data"
+
+        for collection in collection_filter:
+            placemark = et.SubElement(folder, "Placemark")
+            point = et.SubElement(placemark, "Point")
+            et.SubElement(point, "coordinates").text = "{},{}"\
+                .format(collection.latitude, collection.longitude)
+
+        tree = et.ElementTree(root_el)
+        tree.write(output, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
         return output
 
     def get_provinces(self):
         # for efficiency
         if not self.provinces:
-            self.provinces = provinces = ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Quelimane', 'Nampula', 'Niassa', 'Cabo Delgado']
+            self.provinces = provinces = ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Zambezia', 'Nampula', 'Niassa', 'Cabo Delgado']
         return self.provinces
 
     def is_valid_province_list(self, province_list):

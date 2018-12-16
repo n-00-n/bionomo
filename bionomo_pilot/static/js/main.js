@@ -164,7 +164,7 @@ function main() {
                 });
 
                 var markerCluster = new MarkerClusterer(map, markers,
-                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                    {imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 
                 return map;
             }

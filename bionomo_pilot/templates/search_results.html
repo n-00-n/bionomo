@@ -22,9 +22,10 @@
                             <div class="wrapper">
                                 <div class="links-wrapper">
                                     <div class="links">
-                                        <div class="link" style="display: block;"><span class="total"><span>{{ _('Total') }}: </span>{{ result['collections'].total }}</span></div>
+                                        <div class="link" style="display: block;"><span class="total"><span>{{ _('Total') }}: </span>{{ result['total'] }}</span></div>
                                         <div class="link map hidden"><a href="#"><i class="fa fa-map" aria-hidden="true"></i><span>{{ _('Ver no mapa') }}</span></a></div>
-                                        <div class="link csv"><a href="{{ result['csv_url'] }}"><i class="fa fa-download" aria-hidden="true"></i><span>{{ _('Baixar .CSV') }}</span></a></div>
+                                        <div class="link CSV"><a href="{{ result['csv_url'] }}"><i class="fa fa-download" aria-hidden="true"></i><span>{{ _('Baixar .CSV') }}</span></a></div>
+                                        <div class="link KML"><a href="{{ result['kml_url'] }}"><i class="fa fa-download" aria-hidden="true"></i><span>{{ _('Baixar .KML') }}</span></a></div>
                                     </div>
                                 </div>
                                 <div class="clear-both"></div>
@@ -180,23 +181,16 @@
                                                                 <span class="value">{{ collection.genus if collection.genus else '--' }}</span>
                                                             </div>
                                                             <div class="detail">
-                                                                <span class="label highlight">{{ _('Province') }}:</span>
-                                                                <span class="value">{{ collection.province if collection.province else '--' }}</span>
-                                                            </div>
-                                                            <div class="detail">
-                                                                <span class="label highlight">{{ _('Data de observacao') }}:</span>
-                                                                <span class="value">{{ collection.last_date if collection.last_date else '--' }}</span>
-                                                            </div>
-                                                            <div class="detail">
                                                                 <a href="#" class="classification_tree_lnk">
                                                                     <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                                                                     {{ _('header.taxonomy') }}
                                                                 </a>
                                                             </div>
-                                                            <div class="detail">
-                                                                <span class="label highlight">{{ _('Location (Lat; Long)') }}:</span>
-                                                                <span class="value">{{ collection.latitude if collection.latitude else '--' }};
-                                                                    {{ collection.longitude if collection.longitude else '--' }}</span>
+                                                            <div class="detail links" style="margin-top: 10px;">
+                                                                <a href="https://www.gbif.org/search?q={{ collection.full_scientific_name }}" target="_blank">
+                                                                    <img src="{{ url_for('static', filename='images/logos/full_logo_white.svg') }}" alt="link to GBIF" height="18"></a>
+                                                                <a href="https://eol.org/search_results?utf8=✓&q={{ collection.full_scientific_name }}" target="_blank">
+                                                                    <img src="{{ url_for('static', filename='images/logos/eol_logo.png') }}" alt="link to Encyclopedia of life" height="12"></a>
                                                             </div>
                                                         </div>
                                                     </div>

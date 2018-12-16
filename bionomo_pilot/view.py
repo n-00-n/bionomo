@@ -115,6 +115,7 @@ def view_results():
                             return redirect(redirect_url())
 
                         _result_dict['csv_url'] = csv_url()
+                        _result_dict['kml_url'] = kml_url()
                         _result_dict['page_url'] = page_url
 
                         _filter_form = FilterSearch(request.args, _results_dict=_result_dict)
@@ -165,6 +166,7 @@ def view_results():
                             return redirect(redirect_url())
 
                         _result_dict['csv_url'] = csv_url()
+                        _result_dict['kml_url'] = kml_url()
                         _result_dict['page_url'] = page_url
 
                         _filter_form = FilterSearch(request.args, _results_dict=_result_dict)
@@ -218,6 +220,7 @@ def view_results():
                                 return redirect(redirect_url())
 
                             _result_dict['csv_url'] = csv_url()
+                            _result_dict['kml_url'] = kml_url()
                             _result_dict['page_url'] = page_url
 
                             _filter_form = FilterSearch(request.args, _results_dict=_result_dict)
@@ -374,6 +377,156 @@ def download_csv():
                                                 mimetype="text/csv",
                                                 headers={
                                                     "Content-disposition": "attachment; filename={}.csv".format(
+                                                        _file_name)}
+                                                )
+
+                            return response
+
+                        else:
+                            abort(404)
+
+                    else:
+                        abort(404)
+                else:
+                    abort(404)
+        else:
+            abort(404)
+
+    return abort(404)
+
+
+@app.route('/download_kml', methods=['GET'])
+@app.route('/<lang_code>/download_kml', methods=['GET'])
+@app.route('/<lang_code>/download_kml/', methods=['GET'])
+def download_kml():
+    """An endpoint that processes form submissions"""
+    # if its post
+    # else if its get
+    # ----------- prevent sql-injection: prevented by default by flask-sqlalchemy
+    # put values back on the form
+
+    service = BioNoMoService()
+    form = SearchForm(request.args)
+    if request.method == 'GET':
+        if form.flag.data:
+            if not form.validate():
+                abort(404)
+            else:
+                if form.flag.data == c.form_flags['simple_search']:
+                    form = MainSearch(request.args)
+                    # filter_form = FilterForm(request.args)
+                    if form.validate():
+
+                        _page = request.args.get(c.page_name, None)
+                        if _page and not _page.isdigit():
+                            abort(404)
+
+                        _scientific_name = form.data.get(b_c.name_full_scientific_name_string, None)
+
+                        _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+
+                        _file_name = '_'.join(
+                            [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
+                        response = Response(_csv_content.getvalue(),
+                                            mimetype="text/xml",
+                                            headers={
+                                                "Content-disposition": "attachment; filename={}.kml".format(_file_name)}
+                                            )
+
+                        return response
+                    else:
+                        abort(404)
+
+                elif form.flag.data == c.form_flags['advanced_search']:
+                    form = AdvancedSearch(request.args)
+                    # filter_form = FilterForm(request.args)
+                    if form.validate():
+
+                        _page = request.args.get(c.page_name, None)
+                        if _page and not _page.isdigit():
+                            abort(404)
+
+                        _page = int(_page) if _page and _page.isdigit() else None
+
+                        _scientific_name = form.data.get(b_c.name_full_scientific_name_string, None)
+                        _province_list = request.args.getlist(b_c.name_province)
+                        _start_date = form.data.get(b_c.name_last_date_start, None)
+                        _end_date = form.data.get(b_c.name_last_date_end, None)
+
+                        _start_latitude = form.data.get(b_c.name_latitude_decimal_start, None)
+                        _end_latitude = form.data.get(b_c.name_latitude_decimal_end, None)
+
+                        _start_longitude = form.data.get(b_c.name_longitude_decimal_start, None)
+                        _end_longitude = form.data.get(b_c.name_longitude_decimal_end, None)
+
+                        _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name,
+                                                                  province_list=_province_list,
+                                                                  start_latitude=_start_latitude,
+                                                                  end_latitude=_end_latitude,
+                                                                  start_longitude=_start_longitude,
+                                                                  end_longitude=_end_longitude,
+                                                                  start_date=_start_date,
+                                                                  end_date=_end_date
+                                                                  )
+
+                        _file_name = '_'.join(
+                            [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
+                        response = Response(_csv_content.getvalue(),
+                                            mimetype="text/xml",
+                                            headers={
+                                                "Content-disposition": "attachment; filename={}.kml".format(_file_name)}
+                                            )
+
+                        return response
+                    else:
+                        abort(404)
+
+                elif form.flag.data == c.form_flags['side_filter']:
+                    form = FilterSearch(request.args)
+                    if form.validate():
+                        _page = request.args.get(c.page_name, None)
+                        if _page and not _page.isdigit():
+                            abort(404)
+
+                        _page = int(_page) if _page and _page.isdigit() else None
+
+                        _scientific_name = form.data.get(b_c.name_full_scientific_name_string, None)
+                        _province_list = request.args.getlist(b_c.name_province)
+                        _start_date = form.data.get(b_c.name_last_date_start, None)
+                        _end_date = form.data.get(b_c.name_last_date_end, None)
+
+                        _start_latitude = form.data.get(b_c.name_latitude_decimal_start, None)
+                        _end_latitude = form.data.get(b_c.name_latitude_decimal_end, None)
+
+                        _start_longitude = form.data.get(b_c.name_longitude_decimal_start, None)
+                        _end_longitude = form.data.get(b_c.name_longitude_decimal_end, None)
+
+                        _provider_list = request.args.getlist(b_c.name_provider)
+                        _province_list = request.args.getlist(b_c.name_province)
+
+                        if service.is_valid_provider_id_list(_provider_list) and service.is_valid_province_list(
+                                _province_list):
+
+                            _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name,
+                                                                      provider_id_list=_provider_list,
+                                                                      province_list=_province_list,
+                                                                      start_latitude=_start_latitude,
+                                                                      end_latitude=_end_latitude,
+                                                                      start_longitude=_start_longitude,
+                                                                      end_longitude=_end_longitude,
+                                                                      start_date=_start_date,
+                                                                      end_date=_end_date,
+                                                                      )
+
+                            if not _csv_content:
+                                abort(404)
+
+                            _file_name = '_'.join(
+                                [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
+                            response = Response(_csv_content.getvalue(),
+                                                mimetype="text/xml",
+                                                headers={
+                                                    "Content-disposition": "attachment; filename={}.kml".format(
                                                         _file_name)}
                                                 )
 
