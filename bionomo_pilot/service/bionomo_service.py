@@ -268,9 +268,9 @@ class BioNoMoService(object):
                 <span style='font-weight: bold'>{}</span><br>
                 {}<br>
                 """.format(collection.full_scientific_name,
-                           h.gettext('header.province'), collection.province,
-                           h.gettext('header.provider'), collection.provider.name,
-                           h.gettext('header.last_date'), collection.last_date,
+                           h.gettext('header.province'), collection.province if collection.province else "---",
+                           h.gettext('header.provider'), collection.provider.name if collection.provider else "---",
+                           h.gettext('header.last_date'), collection.last_date if collection.last_date else "---",
                            h.gettext('header.taxonomy'),
                            self.get_taxonomical_tree_as_str_html(collection))
                 point = et.SubElement(placemark, "Point")

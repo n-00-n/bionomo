@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5caa11a2-a837-4468-b6e3-0244937f1ef5" name="Default" comment="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/silvino.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/silvino.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" afterPath="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/bionomo.log" afterPath="$PROJECT_DIR$/logs/bionomo.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/bionomo.log.1" afterPath="$PROJECT_DIR$/logs/bionomo.log.1" />
     </list>
     <ignored path="bionomo_pilot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,7 +88,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -151,11 +148,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bionomo_service.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bionomo_service.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="288" column="23" lean-forward="false" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
+            <state relative-caret-position="183">
+              <caret line="271" column="114" lean-forward="false" selection-start-line="271" selection-start-column="114" selection-end-line="271" selection-end-column="114" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -297,8 +294,8 @@
         <option value="$PROJECT_DIR$/bionomo_pilot/templates/search_results.html" />
         <option value="$PROJECT_DIR$/bionomo_pilot/static/css/main.css" />
         <option value="$PROJECT_DIR$/bionomo_pilot/templates/base.html" />
-        <option value="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" />
         <option value="$PROJECT_DIR$/bionomo_pilot/config.py" />
+        <option value="$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py" />
       </list>
     </option>
   </component>
@@ -905,12 +902,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41145834" sideWeight="0.5051546" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4113856" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3039742" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3039742" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6208378" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1578125" sideWeight="0.48387095" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1540,21 +1538,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="288" column="23" lean-forward="false" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="51" column="11" lean-forward="false" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="271" column="114" lean-forward="false" selection-start-line="271" selection-start-column="114" selection-end-line="271" selection-end-column="114" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
