@@ -3,9 +3,11 @@ from collections import OrderedDict
 import io
 
 import unicodecsv as csv
+from lxml.etree import CDATA
 from sqlalchemy import asc
 from sqlalchemy import desc
 
+from bionomo_pilot import hack as h
 from bionomo_pilot import Components
 from bionomo_pilot.models import Provider, Collection
 from bionomo_pilot.models import Multimedia
@@ -221,11 +223,6 @@ class BioNoMoService(object):
             return None
 
         output = io.BytesIO()
-        # with open('test.csv', 'w') as file:
-        #     w = csv.DictWriter(file, fieldnames=collection_filter[0].as_dict.keys())
-        #     w.writeheader()
-        #     w.writerows([collection.as_dict for collection in collection_filter])
-
         w = csv.DictWriter(output, fieldnames=collection_filter[0].as_dict.keys())
         w.writeheader()
         w.writerows([collection.as_dict for collection in collection_filter])
@@ -260,14 +257,36 @@ class BioNoMoService(object):
         et.SubElement(folder, "name").text = "BioNoMo data"
 
         for collection in collection_filter:
-            placemark = et.SubElement(folder, "Placemark")
-            point = et.SubElement(placemark, "Point")
-            et.SubElement(point, "coordinates").text = "{},{}"\
-                .format(collection.latitude, collection.longitude)
+            if collection.longitude and collection.latitude:
+                placemark = et.SubElement(folder, "Placemark")
+                _content = """
+                <span style='font-weight: bold'>{}</span><br><br>
+                {}: <span style='font-style: italic'>{}</span><br>
+                {}: <span style='font-style: italic'>{}</span><br>
+                {}: <span style='font-style: italic'>{}</span><br>
+                <br>
+                <span style='font-weight: bold'>{}</span><br>
+                {}<br>
+                """.format(collection.full_scientific_name,
+                           h.gettext('header.province'), collection.province,
+                           h.gettext('header.provider'), collection.provider.name,
+                           h.gettext('header.last_date'), collection.last_date,
+                           h.gettext('header.taxonomy'),
+                           self.get_taxonomical_tree_as_str_html(collection))
+                point = et.SubElement(placemark, "Point")
+                et.SubElement(point, "coordinates").text = "{},{}"\
+                    .format(collection.longitude, collection.latitude)
+                et.SubElement(placemark, "description").text = CDATA(_content)
 
         tree = et.ElementTree(root_el)
         tree.write(output, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
+        return output
+
+    def get_taxonomical_tree_as_str_html(self, collection):
+        output = ""
+        for k, v in collection.taxonomy_dict.items():
+            output += "{} -> <span style='font-style: italic'>{}</span> <br>".format(k, v)
         return output
 
     def get_provinces(self):

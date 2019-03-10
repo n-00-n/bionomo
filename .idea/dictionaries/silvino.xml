@@ -2550,6 +2550,7 @@
       <w>chol</w>
       <w>chol.default</w>
       <w>chol2inv</w>
+      <w>choldrop</w>
       <w>choose</w>
       <w>chooseBioCmirror</w>
       <w>chooseCRANmirror</w>
@@ -2731,6 +2732,7 @@
       <w>compute</w>
       <w>computeRestarts</w>
       <w>con2tr</w>
+      <w>concordance</w>
       <w>concorde_help</w>
       <w>concorde_path</w>
       <w>concurvity</w>
@@ -3092,6 +3094,7 @@
       <w>dgeom</w>
       <w>dget</w>
       <w>dhyper</w>
+      <w>diabetic</w>
       <w>diag</w>
       <w>diag.off</w>
       <w>diag.panel.splom</w>
@@ -8408,6 +8411,7 @@
       <w>type_sum</w>
       <w>typeof</w>
       <w>ucv</w>
+      <w>udca</w>
       <w>uiOutput</w>
       <w>unByteCode</w>
       <w>unByteCodeAssign</w>
