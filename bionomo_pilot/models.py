@@ -96,6 +96,9 @@ class Collection(db.Model):
             if self.provider and self.provider.thumbnail:
                 return self.provider.thumbnail
 
+    def get_header(self, attr_name):
+        return gettext(attr_name)
+
     @hybrid_property
     def as_dict(self):
         else_ = self.provider.full_name if self.provider.full_name else ''

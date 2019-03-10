@@ -7,13 +7,13 @@ from lxml.etree import CDATA
 from sqlalchemy import asc
 from sqlalchemy import desc
 
-from bionomo_pilot import hack as h
 from bionomo_pilot import Components
 from bionomo_pilot.models import Provider, Collection
 from bionomo_pilot.models import Multimedia
 from helper import multimedia_to_image
 from bionomo_pilot.constants import Constants as c
 from bionomo_pilot.biocase.constants import Constants as b_c
+from bionomo_pilot.hack import gettext
 
 db = Components.db
 
@@ -255,7 +255,7 @@ class BioNoMoService(object):
         document = et.SubElement(root_el, "Document", id="root_doc")
         folder = et.SubElement(document, "Folder")
         et.SubElement(folder, "name").text = "BioNoMo data"
-
+        from unidecode import unidecode
         for collection in collection_filter:
             if collection.longitude and collection.latitude:
                 placemark = et.SubElement(folder, "Placemark")
@@ -268,10 +268,10 @@ class BioNoMoService(object):
                 <span style='font-weight: bold'>{}</span><br>
                 {}<br>
                 """.format(collection.full_scientific_name,
-                           h.gettext('header.province'), collection.province if collection.province else "---",
-                           h.gettext('header.provider'), collection.provider.name if collection.provider else "---",
-                           h.gettext('header.last_date'), collection.last_date if collection.last_date else "---",
-                           h.gettext('header.taxonomy'),
+                           unidecode(collection.get_header('header.province')), collection.province if collection.province else "---",
+                           unidecode(collection.get_header('header.provider')), collection.provider.name if collection.provider else "---",
+                           unidecode(collection.get_header('header.last_date')), collection.last_date if collection.last_date else "---",
+                           unidecode(collection.get_header('header.taxonomy')),
                            self.get_taxonomical_tree_as_str_html(collection))
                 point = et.SubElement(placemark, "Point")
                 et.SubElement(point, "coordinates").text = "{},{}"\
@@ -286,6 +286,7 @@ class BioNoMoService(object):
     def get_taxonomical_tree_as_str_html(self, collection):
         output = ""
         for k, v in collection.taxonomy_dict.items():
+            pass
             output += "{} -> <span style='font-style: italic'>{}</span> <br>".format(k, v)
         return output
 
