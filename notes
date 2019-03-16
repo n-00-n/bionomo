@@ -21,6 +21,7 @@ Pour ajouter un thumbnail il faut juste:
         (description, type, order, collection_id, provider_id, full_name, short_name)
         ('', 1, NULL, NULL, provider_id, full_name, short_name)]
         ('thumbnail of Instituto de Investigacao Pesqueira', 1, NULL, NULL, 4, 'iip-thumbnail.png', 'thumb_iip')
+        ('thumbnail of Instituto de Investigacao Pesqueira', 1, NULL, NULL, 4, 'iip-thumbnail.png', 'thumb_iip')
         où:
         provider_id: se trouve dans la table provider
         full_name: c'est le nom de l'image (sans code_code_) dans le dossier multimedia: par exemple por 1_8_museu-thumbnail.png, serait museu-thumbnail.png
@@ -59,3 +60,9 @@ Pour ajouter un logo il faut juste:
  => run the harvest again, against the production database and make sure all the multimedia is set right
         = check whether the multimedia for the provider.abbreviation exists on the database
             - if not use the default settings (add a dict on the constantsx)
+
+====
+pybabel
+cd bionomo_pilot
+pybabel compile message.pot -d translations
+

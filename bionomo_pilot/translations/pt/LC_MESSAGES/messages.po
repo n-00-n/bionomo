@@ -317,7 +317,11 @@ msgstr ""
 
 #: bionomo_pilot/templates/search_results.html:15
 msgid "Baixar .CSV"
-msgstr ""
+msgstr "Descarregar .CSV"
+
+#: bionomo_pilot/templates/search_results.html:15
+msgid "Baixar .KML"
+msgstr "Descarregar .KML"
 
 #: bionomo_pilot/templates/search_results.html:29
 msgid "Instituição"
