@@ -66,3 +66,9 @@ pybabel
 cd bionomo_pilot
 pybabel compile message.pot -d translations
 
+==
+heroku
+git add .
+git commit -am "_MESSAGE_HERE"
+git push heroku master
+

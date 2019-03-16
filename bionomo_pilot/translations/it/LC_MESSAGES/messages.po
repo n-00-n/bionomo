@@ -332,7 +332,7 @@ msgid "Baixar .CSV"
 msgstr "Scarica .CSV"
 
 #: bionomo_pilot/templates/search_results.html:15
-msgid "Baixar .CSV"
+msgid "Baixar .KML"
 msgstr "Scarica .KML"
 
 #: bionomo_pilot/templates/search_results.html:29
