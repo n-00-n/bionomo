@@ -628,6 +628,7 @@
       <w>ExNPreg</w>
       <w>ExNclus</w>
       <w>F</w>
+      <w>FFdes</w>
       <w>FLXMCdist1</w>
       <w>FLXMCfactanal</w>
       <w>FLXMCmvbinary</w>
@@ -2551,6 +2552,7 @@
       <w>chol.default</w>
       <w>chol2inv</w>
       <w>choldrop</w>
+      <w>cholup</w>
       <w>choose</w>
       <w>chooseBioCmirror</w>
       <w>chooseCRANmirror</w>
@@ -3953,6 +3955,7 @@
       <w>ggsave</w>
       <w>ggtitle</w>
       <w>gilgais</w>
+      <w>ginla</w>
       <w>ginv</w>
       <w>github_document</w>
       <w>gl</w>
@@ -8403,6 +8406,7 @@
       <w>tufte_handout</w>
       <w>tuna</w>
       <w>tw</w>
+      <w>twlss</w>
       <w>txhousing</w>
       <w>txtProgressBar</w>
       <w>type</w>

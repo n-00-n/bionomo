@@ -281,3 +281,57 @@ Traceback (most recent call last):
   File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/unidecode/__init__.py", line 48, in unidecode_expect_ascii
     bytestring = string.encode('ASCII')
 UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)
+write() got an unexpected keyword argument 'remove_blank_text'
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 426, in download_kml
+    _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 282, in get_kml_for_fields
+    tree.write(output, pretty_print=False, xml_declaration=True, encoding='utf-8', remove_blank_text=True)
+  File "src/lxml/lxml.etree.pyx", line 1955, in lxml.etree._ElementTree.write (src/lxml/lxml.etree.c:64491)
+TypeError: write() got an unexpected keyword argument 'remove_blank_text'
+write() got an unexpected keyword argument 'indent'
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 426, in download_kml
+    _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 282, in get_kml_for_fields
+    tree.write(output, pretty_print=False, xml_declaration=True, encoding='utf-8', indent='', newl='')
+  File "src/lxml/lxml.etree.pyx", line 1955, in lxml.etree._ElementTree.write (src/lxml/lxml.etree.c:64491)
+TypeError: write() got an unexpected keyword argument 'indent'
+write() got an unexpected keyword argument 'indent'
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 426, in download_kml
+    _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/service/bionomo_service.py", line 282, in get_kml_for_fields
+    tree.write(output, pretty_print=False, xml_declaration=True, encoding='utf-8', indent='', newl='')
+  File "src/lxml/lxml.etree.pyx", line 1955, in lxml.etree._ElementTree.write (src/lxml/lxml.etree.c:64491)
+TypeError: write() got an unexpected keyword argument 'indent'
+'_io.BytesIO' object has no attribute '__getitem__'
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 428, in download_kml
+    _format = _kml_content[1]
+TypeError: '_io.BytesIO' object has no attribute '__getitem__'
+'_io.BytesIO' object has no attribute '__getitem__'
+Traceback (most recent call last):
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/silvino/dev/python/envs/bionomo_pilot/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/silvino/dev/python/srcs/bionomo/bionomo_pilot/view.py", line 428, in download_kml
+    _format = _kml_content[1]
+TypeError: '_io.BytesIO' object has no attribute '__getitem__'

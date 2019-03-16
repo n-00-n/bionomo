@@ -279,14 +279,13 @@ class BioNoMoService(object):
                 et.SubElement(placemark, "description").text = CDATA(_content)
 
         tree = et.ElementTree(root_el)
-        tree.write(output, pretty_print=True, xml_declaration=True, encoding='utf-8')
+        tree.write(output, pretty_print=False, xml_declaration=True, encoding='utf-8', compression=1)
 
-        return output
+        return (output, 'zip')
 
     def get_taxonomical_tree_as_str_html(self, collection):
         output = ""
         for k, v in collection.taxonomy_dict.items():
-            pass
             output += "{} -> <span style='font-style: italic'>{}</span> <br>".format(k, v)
         return output
 

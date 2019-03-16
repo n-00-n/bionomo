@@ -423,14 +423,16 @@ def download_kml():
 
                         _scientific_name = form.data.get(b_c.name_full_scientific_name_string, None)
 
-                        _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+                        _kml_content = service.get_kml_for_fields(scientific_name=_scientific_name)
+                        _format = _kml_content[1]
+                        _kml_content = _kml_content[0]
 
                         _file_name = '_'.join(
                             [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
-                        response = Response(_csv_content.getvalue(),
-                                            mimetype="text/xml",
+                        response = Response(_kml_content.getvalue(),
+                                            mimetype="application/zip" if _format == 'zip' else 'text/xml',
                                             headers={
-                                                "Content-disposition": "attachment; filename={}.kml".format(_file_name)}
+                                                "Content-disposition": "attachment; filename={}.{}".format(_file_name + '.kml', _format)}
                                             )
 
                         return response
@@ -459,7 +461,7 @@ def download_kml():
                         _start_longitude = form.data.get(b_c.name_longitude_decimal_start, None)
                         _end_longitude = form.data.get(b_c.name_longitude_decimal_end, None)
 
-                        _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name,
+                        _kml_content = service.get_kml_for_fields(scientific_name=_scientific_name,
                                                                   province_list=_province_list,
                                                                   start_latitude=_start_latitude,
                                                                   end_latitude=_end_latitude,
@@ -471,7 +473,7 @@ def download_kml():
 
                         _file_name = '_'.join(
                             [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
-                        response = Response(_csv_content.getvalue(),
+                        response = Response(_kml_content.getvalue(),
                                             mimetype="text/xml",
                                             headers={
                                                 "Content-disposition": "attachment; filename={}.kml".format(_file_name)}
@@ -507,7 +509,7 @@ def download_kml():
                         if service.is_valid_provider_id_list(_provider_list) and service.is_valid_province_list(
                                 _province_list):
 
-                            _csv_content = service.get_kml_for_fields(scientific_name=_scientific_name,
+                            _kml_content = service.get_kml_for_fields(scientific_name=_scientific_name,
                                                                       provider_id_list=_provider_list,
                                                                       province_list=_province_list,
                                                                       start_latitude=_start_latitude,
@@ -518,12 +520,12 @@ def download_kml():
                                                                       end_date=_end_date,
                                                                       )
 
-                            if not _csv_content:
+                            if not _kml_content:
                                 abort(404)
 
                             _file_name = '_'.join(
                                 [gettext('dados_bionomo'), datetime.utcnow().strftime(c.file_date_format)])
-                            response = Response(_csv_content.getvalue(),
+                            response = Response(_kml_content.getvalue(),
                                                 mimetype="text/xml",
                                                 headers={
                                                     "Content-disposition": "attachment; filename={}.kml".format(
