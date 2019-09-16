@@ -39,7 +39,7 @@ class TestConfig(Config):
 class ProductionConfig(Config):
     SERVER_HOST = '127.0.0.1'
     SERVER_PORT = '2222'
-    SQLALCHEMY_DATABASE_URI = 'mysql://bolqdlc0y9nthn8r:rbk1im4cvt34bpri@d3z8xj6oqkda6jgq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/primary_app_db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://bolqdlc0y9nthn8r:rbk1im4cvt34bpri@d3z8xj6oqkda6jgq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/primary_app_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
