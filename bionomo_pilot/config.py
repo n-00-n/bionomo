@@ -39,7 +39,7 @@ class TestConfig(Config):
 class ProductionConfig(Config):
     SERVER_HOST = '127.0.0.1'
     SERVER_PORT = '2222'
-    SQLALCHEMY_DATABASE_URI = 'mysql://cagy8s69mz3xdj2x:d05065yh5lpry0kb@a7e4sgso2kxq2hsi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/bionomo_update'
+    SQLALCHEMY_DATABASE_URI = 'mysql://bolqdlc0y9nthn8r:rbk1im4cvt34bpri@d3z8xj6oqkda6jgq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/primary_app_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

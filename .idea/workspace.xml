@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5caa11a2-a837-4468-b6e3-0244937f1ef5" name="Default" comment="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.mo" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/config.py" afterPath="$PROJECT_DIR$/bionomo_pilot/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po" afterPath="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes" afterPath="$PROJECT_DIR$/notes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/bionomo.log" afterPath="$PROJECT_DIR$/logs/bionomo.log" />
     </list>
     <ignored path="bionomo_pilot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +42,7 @@
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittest_TestHarvester_test_load_and_parse.coverage" NAME="Unittest TestHarvester.test_load_and_parse Coverage Results" MODIFIED="1495309287514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittests_in_test_fetch.coverage" NAME="Unittests in test_fetch Coverage Results" MODIFIED="1495225752130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
     <SUITE FILE_PATH="coverage/bionomo_pilot$Unittest_TestQuery_test_conjuction_query.coverage" NAME="Unittest TestQuery.test_conjuction_query Coverage Results" MODIFIED="1494793419320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bionomo_pilot/biocase/test" />
-    <SUITE FILE_PATH="coverage/bionomo$run_bionomo_pilot.coverage" NAME="run_bionomo_pilot Coverage Results" MODIFIED="1552731640099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bionomo$run_bionomo_pilot.coverage" NAME="run_bionomo_pilot Coverage Results" MODIFIED="1568624710522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -94,8 +91,8 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="52" column="11" lean-forward="false" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+            <state relative-caret-position="361">
+              <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -104,7 +101,7 @@
       <file leaf-file-name="notes" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
+            <state relative-caret-position="1224">
               <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
@@ -114,7 +111,7 @@
       <file leaf-file-name="messages.po" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/pt/LC_MESSAGES/messages.po">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="5796">
               <caret line="322" column="18" lean-forward="false" selection-start-line="322" selection-start-column="15" selection-end-line="322" selection-end-column="18" />
               <folding />
             </state>
@@ -124,8 +121,8 @@
       <file leaf-file-name="view.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="275" column="56" lean-forward="true" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="56" />
+            <state relative-caret-position="4518">
+              <caret line="275" column="56" lean-forward="false" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -134,7 +131,7 @@
       <file leaf-file-name="bionomo_service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-347">
+            <state relative-caret-position="3726">
               <caret line="207" column="8" lean-forward="false" selection-start-line="207" selection-start-column="8" selection-end-line="207" selection-end-column="8" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -146,7 +143,7 @@
       <file leaf-file-name="search_results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/templates/search_results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="486">
               <caret line="27" column="168" lean-forward="false" selection-start-line="27" selection-start-column="168" selection-end-line="27" selection-end-column="168" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
@@ -159,7 +156,7 @@
       <file leaf-file-name="messages.po" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.po">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="5922">
               <caret line="329" column="13" lean-forward="false" selection-start-line="329" selection-start-column="13" selection-end-line="329" selection-end-column="13" />
               <folding />
             </state>
@@ -169,7 +166,7 @@
       <file leaf-file-name="messages.po" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.po">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
+            <state relative-caret-position="6174">
               <caret line="343" column="24" lean-forward="false" selection-start-line="343" selection-start-column="24" selection-end-line="343" selection-end-column="24" />
               <folding />
             </state>
@@ -179,7 +176,7 @@
       <file leaf-file-name="message.pot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/message.pot">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="5850">
               <caret line="325" column="16" lean-forward="false" selection-start-line="325" selection-start-column="8" selection-end-line="325" selection-end-column="16" />
               <folding />
             </state>
@@ -189,7 +186,7 @@
       <file leaf-file-name="messages.po" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
+            <state relative-caret-position="6012">
               <caret line="334" column="18" lean-forward="false" selection-start-line="334" selection-start-column="18" selection-end-line="334" selection-end-column="18" />
               <folding />
             </state>
@@ -332,6 +329,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -405,7 +403,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -926,18 +923,17 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41145834" sideWeight="0.5051546" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3039742" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4113856" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3039742" sideWeight="0.49484536" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62191194" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1578125" sideWeight="0.48387095" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2453125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30075186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46186897" sideWeight="0.4974227" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18333334" sideWeight="0.516129" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46186897" sideWeight="0.4974227" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -946,6 +942,7 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58754027" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30075186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1387,7 +1384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,7 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1418,7 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1800">
           <caret line="100" column="37" lean-forward="false" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,7 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3150">
           <caret line="175" column="72" lean-forward="false" selection-start-line="175" selection-start-column="53" selection-end-line="175" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1465,7 +1458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1473,7 +1465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1481,7 +1472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,7 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="153" column="23" lean-forward="true" selection-start-line="153" selection-start-column="23" selection-end-line="153" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,15 +1492,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="275" column="56" lean-forward="true" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="56" />
+        <state relative-caret-position="4518">
+          <caret line="275" column="56" lean-forward="false" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/service/bionomo_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-347">
+        <state relative-caret-position="3726">
           <caret line="207" column="8" lean-forward="false" selection-start-line="207" selection-start-column="8" selection-end-line="207" selection-end-column="8" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -1521,7 +1510,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/templates/search_results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="486">
           <caret line="27" column="168" lean-forward="false" selection-start-line="27" selection-start-column="168" selection-end-line="27" selection-end-column="168" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
@@ -1532,7 +1521,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/fr/LC_MESSAGES/messages.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
+        <state relative-caret-position="6174">
           <caret line="343" column="24" lean-forward="false" selection-start-line="343" selection-start-column="24" selection-end-line="343" selection-end-column="24" />
           <folding />
         </state>
@@ -1540,7 +1529,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notes">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
+        <state relative-caret-position="1224">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
@@ -1548,7 +1537,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/en/LC_MESSAGES/messages.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="5922">
           <caret line="329" column="13" lean-forward="false" selection-start-line="329" selection-start-column="13" selection-end-line="329" selection-end-column="13" />
           <folding />
         </state>
@@ -1556,7 +1545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/message.pot">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="5850">
           <caret line="325" column="16" lean-forward="false" selection-start-line="325" selection-start-column="8" selection-end-line="325" selection-end-column="16" />
           <folding />
         </state>
@@ -1564,7 +1553,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/pt/LC_MESSAGES/messages.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="5796">
           <caret line="322" column="18" lean-forward="false" selection-start-line="322" selection-start-column="15" selection-end-line="322" selection-end-column="18" />
           <folding />
         </state>
@@ -1572,7 +1561,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
+        <state relative-caret-position="6012">
           <caret line="334" column="18" lean-forward="false" selection-start-line="334" selection-start-column="18" selection-end-line="334" selection-end-column="18" />
           <folding />
         </state>
@@ -1580,8 +1569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bionomo_pilot/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="52" column="11" lean-forward="false" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+        <state relative-caret-position="361">
+          <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
           <folding />
         </state>
       </provider>
