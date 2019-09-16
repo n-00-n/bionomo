@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5caa11a2-a837-4468-b6e3-0244937f1ef5" name="Default" comment="changed bionomo service to return collection grouped by specimen name.&#10;added links to eol and gbif, added the respective images to logo directory under static/images folder.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bionomo_pilot/config.py" afterPath="$PROJECT_DIR$/bionomo_pilot/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/bionomo.log" afterPath="$PROJECT_DIR$/logs/bionomo.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime.txt" afterPath="$PROJECT_DIR$/runtime.txt" />
     </list>
     <ignored path="bionomo_pilot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,11 +87,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bionomo_pilot/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
               <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runtime.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/runtime.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -113,16 +122,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5796">
               <caret line="322" column="18" lean-forward="false" selection-start-line="322" selection-start-column="15" selection-end-line="322" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bionomo_pilot/view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4518">
-              <caret line="275" column="56" lean-forward="false" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -248,7 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bionomo_pilot/static/css/datepicker.css" />
         <option value="$PROJECT_DIR$/bionomo_pilot/static/js/vendor/datepicker.en.js" />
         <option value="$PROJECT_DIR$/translations_bkp/it/LC_MESSAGES/messages.po" />
         <option value="$USER_HOME$/Documents/biodiversity-secosud2/bionomo/aifm2006/aifm2006_abcdmetadat.sql" />
@@ -299,6 +297,7 @@
         <option value="$PROJECT_DIR$/notes" />
         <option value="$PROJECT_DIR$/bionomo_pilot/translations/it/LC_MESSAGES/messages.po" />
         <option value="$PROJECT_DIR$/bionomo_pilot/config.py" />
+        <option value="$PROJECT_DIR$/runtime.txt" />
       </list>
     </option>
   </component>
@@ -1199,11 +1198,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/multimedia/logo-aics.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multimedia/logo-dinaf.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1571,6 +1565,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
