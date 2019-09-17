@@ -6,8 +6,8 @@ from sqlalchemy.ext.hybrid import hybrid_property
 
 from bionomo_pilot.hack import gettext
 from . import Components
-from constants import Constants as c
-from service.helper import multimedia_to_image
+from bionomo_pilot.constants import Constants as c
+from bionomo_pilot.service.helper import multimedia_to_image
 
 db = Components.db
 # todo: replace this with the sql-alchemy equivalent

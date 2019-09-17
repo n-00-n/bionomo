@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask_babel import Babel
 from flask_sqlalchemy import SQLAlchemy
-from config import config_by_name, os_path
+from bionomo_pilot.config import config_by_name, os_path
 
 
 class Components:

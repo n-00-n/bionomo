@@ -21,7 +21,7 @@ class Image(object):
 
 
 def encode_text(text):
-    return base64.b64encode(text)
+    return base64.b64encode(text.encode('utf-8'))
 
 
 def decode_text(text):
@@ -33,8 +33,8 @@ def multimedia_to_image(multimedia, width=None, height=None):
     _encoded_multimedia_type = encode_text(str(multimedia.type)) if multimedia is not None else ''
 
     _url = '/'.join([cfg.MULTIMEDIA_ENDPOINT,
-                     _encoded_multimedia_id,
-                     _encoded_multimedia_type])
+                     _encoded_multimedia_id.decode('utf-8'),
+                     _encoded_multimedia_type.decode('utf-8')])
 
     return Image(multimedia_id=multimedia.id,
                  name=multimedia.short_name,

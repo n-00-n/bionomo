@@ -10,7 +10,7 @@ from sqlalchemy import desc
 from bionomo_pilot import Components
 from bionomo_pilot.models import Provider, Collection
 from bionomo_pilot.models import Multimedia
-from helper import multimedia_to_image
+from .helper import multimedia_to_image
 from bionomo_pilot.constants import Constants as c
 from bionomo_pilot.biocase.constants import Constants as b_c
 from bionomo_pilot.hack import gettext

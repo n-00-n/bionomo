@@ -5,23 +5,18 @@ import os
 # but i'm gonna try to override get_translation from flask-babel
 # I feel this is causing my code to fail to parse uft-8 text on .py files.
 # let's see
-import urllib
-from urlparse import urlparse
 from datetime import datetime
 
-import traceback
 from flask import Response
 from flask import flash, jsonify
-from flask import g
 from flask import redirect
 from flask import request, abort, send_from_directory
 
-from bionomo_pilot.models import Collection
-from hack import render_template
-from forms import *
+from bionomo_pilot.hack import render_template
+from bionomo_pilot.forms import *
 
-from constants import Constants as c
-from biocase.constants import Constants as b_c
+from .constants import Constants as c
+from .biocase.constants import Constants as b_c
 from bionomo_pilot.service.bionomo_service import BioNoMoService
 from . import Components
 
@@ -91,8 +86,8 @@ def view_results():
     if request.method == 'GET':
         if form.flag.data:
             if not form.validate():
-                print 'flag attribute has invalid values. check it out.'
-                print form.flag.errors
+                print ('flag attribute has invalid values. check it out.')
+                print (form.flag.errors)
                 abort(404)
             else:
                 if form.flag.data == c.form_flags['simple_search']:
@@ -570,7 +565,7 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
             multimedia_type = base64.b64decode(base64_multimedia_type)
     except TypeError:
         _serve_image = False
-        print 'failed to decode input. will assume no multimedia. will return no_image.jpg'
+        print ('failed to decode input. will assume no multimedia. will return no_image.jpg')
 
     # if there's no problems with the parameter
     if _serve_image:
@@ -580,7 +575,7 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
                 multimedia_type = int(multimedia_type)
         except ValueError:
             _serve_image = False
-            print 'failed to decode input. will assume no multimedia. will return no_image.jpg'
+            print ('failed to decode input. will assume no multimedia. will return no_image.jpg')
 
     if not _serve_image or (multimedia_type and multimedia_type not in c.IMG_CODES):
         # return the default no-img image
@@ -603,7 +598,7 @@ def serve_multimedia(base64_multimedia_id, base64_multimedia_type=None):
             _image_path = os.path.sep.join([_multimedia_dir, _image_name])
 
             if not os.path.exists(_image_path):
-                print 'image not found: ' + _image_path
+                print ('image not found: ' + _image_path)
                 return send_from_directory(_multimedia_dir, c.no_img_full_name)
 
             return send_from_directory(_multimedia_dir, _image_name)
@@ -674,8 +669,17 @@ def inject_updated_locale_urls():
         _args = []
         for arg, arg_v in request.args.items():
             # _args.append((arg, arg_v))
-            _args.append((unicode(arg).encode('utf-8'), unicode(arg_v).encode('utf-8')))
-        _request_url = urllib.urlencode(_args)
+
+            try: # compatible to 2 and 3. what a mess
+                _args.append((str(arg).encode('utf-8'), str(arg_v).encode('utf-8')))
+
+                _request_url = urllib.parse.urlencode(_args)
+            except:
+                _args.append((unicode(arg).encode('utf-8'), unicode(arg_v).encode('utf-8')))
+
+                _request_url = urllib.urlencode(_args)
+
+
         if request.path[:4] in app.config['SUPPORTED_LANGUAGES_PATH']:
             _request_url = request.path[3:] + '?' + _request_url
         else:

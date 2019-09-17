@@ -8,10 +8,10 @@ from wtforms import Form, HiddenField, DecimalField, SelectField, DateField, Sel
 from wtforms import validators
 
 from bionomo_pilot.service.bionomo_service import BioNoMoService
-from hack import gettext, StringField, LessThan, GreaterThan, Select2MultipleField, ThisSelectField
+from .hack import gettext, StringField, LessThan, GreaterThan, Select2MultipleField, ThisSelectField
 
-from constants import Constants as c
-from biocase.constants import Constants as b_c
+from .constants import Constants as c
+from .biocase.constants import Constants as b_c
 
 service = BioNoMoService()
 

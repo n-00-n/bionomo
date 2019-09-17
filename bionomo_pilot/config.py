@@ -1,6 +1,6 @@
 # encoding: utf8
 import os
-from constants import Constants as c
+from bionomo_pilot.constants import Constants as c
 basedir = os.path.abspath(os.path.dirname(__file__))
 basedir_parent = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 os_path = os.path
@@ -24,7 +24,7 @@ class Config(object):
 class DevelopmentConfig(Config):
     SERVER_HOST = '0.0.0.0'
     SERVER_PORT = '2000'
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@localhost/bionomo_pilot_dev' # change to 'bionomo_dev' for the data.
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:admin@localhost/bionomo_pilot_dev' # change to 'bionomo_dev' for the data.
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     DEBUG = False
 

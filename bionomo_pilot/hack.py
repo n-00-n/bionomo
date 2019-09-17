@@ -4,6 +4,7 @@ from werkzeug.utils import escape
 from wtforms import ValidationError, SelectMultipleField, SelectField
 from wtforms.widgets import HTMLString, Select
 from wtforms.widgets import html_params
+from six import string_types
 # from wtforms.widgets import escape
 
 
@@ -137,7 +138,7 @@ class SelectWidget(Select):
         else:
             coerce_func, data = mixed
             # value = value.decode('utf-8')
-            func_result = unicode(value) if isinstance(value, basestring) else coerce_func(value)
+            func_result = str(value) if isinstance(value, string_types) else coerce_func(value)
             selected = func_result == data
 
             options = {'value': value}
@@ -147,7 +148,7 @@ class SelectWidget(Select):
             options['selected'] = u'selected'
 
             html = u'<option %s>%s</option>'
-            data = (html_params(**options), escape(unicode(label)))
+            data = (html_params(**options), escape(str(label)))
 
         return HTMLString(html % data)
 
