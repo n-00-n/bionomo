@@ -68,6 +68,7 @@ class Harvester:
         biocase_result = protocol_query.fetch_result()
         none_failed = True
         provider_list = []
+
         for abcd_model in biocase_result.abdc_models:
             provider = Provider()
             provider.name = abcd_model.provider.org_name
@@ -80,6 +81,7 @@ class Harvester:
             provider.nr_collections = len(abcd_model.collection_items)  # todo: remove this, compute count once on the biocase_results.fetch_results()
 
             collection_list = []
+
             for collection_item in abcd_model.collection_items:
                 collection = Collection()
 
@@ -141,7 +143,7 @@ class Harvester:
             if abcd_model.has_more_items:
                 _abcd_model = abcd_model
                 while _abcd_model.has_more_items:
-                    print 'found more items on the ABCDModel.'
+                    print('found more items on the ABCDModel.')
                     _attribute_dict = {
                         'path': c.full_path_unit_id,
                         'operation': c.query_conjuction_op_greather_than_tag,
@@ -240,7 +242,7 @@ class Harvester:
                 try:
                     collection.last_date = datetime.strptime(_date_str, c.date_format) if _date_str else None
                 except ValueError:
-                    print 'problematic data found:' + _date_str
+                    print('problematic data found:' + _date_str)
 
                 collection.last_year = collection.last_year .year if collection.last_year else None
 
@@ -259,11 +261,11 @@ class Harvester:
                     db.session.commit()
                     _submitted_count += 1
                 except Exception:
-                    print 'failed to submit Collection(id, unit_id) = ({}, {})'.format(collection.id, collection.unit_id)
+                    print('failed to submit Collection(id, unit_id) = ({}, {})'.format(collection.id, collection.unit_id))
 
             else:
-                print 'Collection(id, unit_id_numeric, provider) = ({}, {}, {}) already exists on the DB.\nUpdating it!'\
-                        .format(_collection_db.id, _collection_db.unit_id_numeric, _collection_db.provider.abbreviation)
+                print('Collection(id, unit_id_numeric, provider) = ({}, {}, {}) already exists on the DB.\nUpdating it!'\
+                        .format(_collection_db.id, _collection_db.unit_id_numeric, _collection_db.provider.abbreviation))
                 _to_subtract += 1
 
             # store to the DB instead.
